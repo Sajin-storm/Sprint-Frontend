@@ -4,10 +4,28 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import {applyMiddleware, createStore} from 'redux'
+import {Provider} from 'react-redux';
+import reducer from "./store/reducer"
+import thunk from 'redux-thunk';
+
+const logger = (store) => (next) => action => {
+  console.log("Action fired",action);
+  next(action);
+}
+
+//linking redux with react so that store can be used everywhere 
+const store = createStore(reducer, applyMiddleware(logger,thunk));
+
+
 ReactDOM.render(
-  <React.StrictMode>
+  //<React.StrictMode>
+
+    <Provider store={store}>
     <App />
-  </React.StrictMode>,
+    </Provider>,
+    
+  //</React.StrictMode>,
   document.getElementById('root')
 );
 
