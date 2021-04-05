@@ -7,7 +7,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
 
-
 const useStyles = makeStyles((theme) => ({
     root: {
       '& .MuiTextField-root': {
@@ -33,7 +32,7 @@ class AddBooking extends Component {
 	this.journeyStartTime = React.createRef();
 	this.journeyEndTime = React.createRef();
 
-    this.state = {message: ''}
+    this.state = {message: '',}
     }
 
     addBooking(event){
@@ -74,8 +73,6 @@ class AddBooking extends Component {
         const classes = useStyles;
         
 
-    
-    
    
         return (
 
@@ -87,7 +84,7 @@ class AddBooking extends Component {
                 display:'flex',
                 justifyContent:'center',
             }}>
-            
+                
                
                
                  <form className={classes.root} noValidate autoComplete="off" >

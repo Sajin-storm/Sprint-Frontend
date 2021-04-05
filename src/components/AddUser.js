@@ -1,18 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import * as actions from '../actions/action'
-// import {
-//     BrowserRouter as Router,
-//     Switch,
-//     Route,
-//     Link
-//   } from "react-router-dom";
 
 
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import { Typography } from '@material-ui/core';
+import {Typography} from '@material-ui/core';
 
 import Avatar from '@material-ui/core/Avatar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -22,7 +16,6 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Container from '@material-ui/core/Container';
-
 
 
 
@@ -95,10 +88,12 @@ class AddUser extends Component{
 
         const classes = useStyles;
         
+        const handleClick = ()=>{
+          this.addUser.bind(this) 
+        }
 
 
         return (
-
              <div>
                  
                  <Container component="main" maxWidth="xs">
@@ -151,7 +146,7 @@ class AddUser extends Component{
             variant="contained"
             color="primary"
             //className={classes.submit}
-            onClick={ this.addUser.bind(this) }
+            onClick={handleClick}
             //onClick = {handleClick}
           >
               
@@ -175,54 +170,11 @@ class AddUser extends Component{
         <Copyright />
       </Box>
     </Container>  
-
-    
-
-                 {/* <br/>
-                 <div style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
-              }}>
-                 <form className={classes.root} noValidate autoComplete="off" >
-                 <Typography style={{display:'flex', justifyContent:'center'}}>&emsp;<h3>Add New User</h3></Typography>
-                 &emsp;
-                 <TextField  inputRef={this.username}  id="outlined-required" label="Enter Username" variant="filled"></TextField>
-                 </form>
-                 </div>
-                 <br/>
-                 <div style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
-              }}>
-                 <form className={classes.root} noValidate autoComplete="off">
-                 &emsp;
-                 <TextField  inputRef={this.password} id="standard-password-input" label="Password" type="password" autoComplete="current-password" variant="filled"></TextField>
-                 </form>
-                 </div>
-                 <br/>
-                 &emsp;
-                 <div style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
-              }}>
-                 <Button variant="contained" color="primary" className={classes.button} onClick={this.addUser.bind(this)}>Add User</Button> 
-                 <br/></div>
-                 <div style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
-              }}>
-                 <form className={classes.root} noValidate autoComplete="off" >
-                 &emsp;
-                 <TextField fullWidth  disabled id="outlined-required" label={this.props.message} variant="standard"></TextField>
-                 </form>
-</div> */}
-             </div>
-
+      </div>
              
+             
+             
+           
 
             
         )

@@ -24,7 +24,6 @@ import AddBus from './components/AddBus'
 import AddFeedback from './components/AddFeedback'
 import ViewFeedback from './components/ViewFeedback'
 
-
 import { makeStyles,useTheme,withStyles } from '@material-ui/core/styles';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
@@ -47,6 +46,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
+
 
 
 const Accordion = withStyles({
@@ -200,8 +200,6 @@ function App(props) {
     setOpen(false);
   };
 
-  
-
 
   return (
     <Router>
@@ -226,9 +224,11 @@ function App(props) {
             <MenuIcon />
           </IconButton>
           <h4>Online Bus Booking</h4>
-
+        
         </Toolbar>
     
+
+
       </AppBar>
       
       <Drawer
@@ -292,7 +292,8 @@ function App(props) {
 
         </AccordionDetails>
       </Accordion>
-
+      
+      
       <Link className = "nav-link " to="/view" onClick={handleDrawerClose}><h6>View Booking</h6></Link>
       <Divider/>
       <Link className="nav-link " to="/add" onClick={handleDrawerClose}><h6>Add Booking</h6></Link>
@@ -309,14 +310,15 @@ function App(props) {
       <Divider/>
 
       </Drawer>
-
+      
       <main
         className={clsx(classes1.content, {
           [classes.contentShift]: open,
         })}
       >
+        
         <div className={classes1.drawerHeader} />
-
+        
         </main>
 
       <div>
