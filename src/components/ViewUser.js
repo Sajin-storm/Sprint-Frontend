@@ -17,7 +17,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
-
+import ViewBookingByUser from './ViewBookingByUser'
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -85,6 +85,9 @@ class ViewUser extends Component{
                         </Button>
                     </Link>
                 </StyledTableCell>
+                <StyledTableCell align = "center"><Link to={"/booking/viewbyusername/" + user.username}><Button variant="contained" color="primary" >
+                            View Booking</Button></Link></StyledTableCell>
+                
             </StyledTableRow>
             )
           })
@@ -103,6 +106,7 @@ class ViewUser extends Component{
                   <StyledTableCell align="center">Password</StyledTableCell>
                   <StyledTableCell align="center">Delete</StyledTableCell>
                   <StyledTableCell align="center">Update</StyledTableCell>
+                  <StyledTableCell align="center">View Booking</StyledTableCell>
                 </StyledTableRow>
               </TableHead>
               <TableBody>

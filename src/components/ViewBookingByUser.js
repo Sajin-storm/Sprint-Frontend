@@ -16,7 +16,8 @@ import {
   import TableHead from '@material-ui/core/TableHead';
   import TableRow from '@material-ui/core/TableRow';
   import Paper from '@material-ui/core/Paper';
-
+import { TextField } from '@material-ui/core';
+  
 
 
   const StyledTableCell = withStyles((theme) => ({
@@ -52,16 +53,20 @@ const useStyles = makeStyles({
 
 
 
-class ViewBooking extends Component {
+class ViewBookingByUser extends Component {
 
     constructor(){
         super();
-        this.state = {bookings: [], message: ''}
+        this.username = React.createRef();
+        this.state = {bookings: []}
     }
 
-    componentDidMount() {
-        console.log('Initialization...')
-        this.props.onFetchBookings()
+    
+    viewBookingByUser(event){
+        console.log('username...',this.props.match.params.username)
+        event.preventDefault();
+        this.props.onViewBookingByUser(this.props.match.params.username)
+        
     }
 
     deleteBooking(bookingId){
@@ -83,12 +88,14 @@ class ViewBooking extends Component {
 
         var bookingList = this.props.bookings.map((booking, i)=>{
 
-          
+            
          
             return (
-
+                
+                 
 
                 <StyledTableRow key={i}>
+                    
                     <StyledTableCell align="center">{booking.id}</StyledTableCell>
                     <StyledTableCell align="center"><Link to={"/detailview/" + booking.bookingId}>{booking.bookingId}</Link></StyledTableCell>
                     <StyledTableCell align="center">{booking.username}</StyledTableCell>
@@ -96,13 +103,13 @@ class ViewBooking extends Component {
                     <StyledTableCell align="center">{booking.source}</StyledTableCell>
                     <StyledTableCell align="center">{booking.destination}</StyledTableCell>
                     <StyledTableCell align="center">{booking.date}</StyledTableCell>
-                    <StyledTableCell align="center"><Button variant="contained" color="secondary" 
-                        startIcon={<DeleteIcon />} onClick={this.deleteBooking.bind(this, booking.bookingId)}>Delete</Button>
+                    <StyledTableCell align="center"><Button variant="contained" color="secondary" className={classes.button}
+                        startIcon={<DeleteIcon />} onClick={this.deleteBooking.bind(this, booking.bookingId)}>Delete</Button> &nbsp;
                     </StyledTableCell>
-                    <StyledTableCell align="center"><Link to={"/update/" + booking.bookingId}><Button variant="contained" color="primary">
+                    <StyledTableCell><Link to={"/update/" + booking.bookingId}><Button variant="contained" color="primary">
                             Update</Button></Link></StyledTableCell>
                 </StyledTableRow>
-                    
+                
             )
                   
         })
@@ -111,14 +118,14 @@ class ViewBooking extends Component {
         return (
           <div >
             <br/>
-      
-      
+            
+            <Button onClick={this.viewBookingByUser.bind(this)}>View</Button>
             <TableContainer component={Paper}>
             <Table className={classes.table} aria-label="sticky table">
                 <TableHead>
                     <StyledTableRow>
                         <StyledTableCell align="center">ID</StyledTableCell>
-                        <StyledTableCell align="center">BookingID</StyledTableCell>
+                        <StyledTableCell align="center">Booking ID</StyledTableCell>
                         <StyledTableCell align="center">Username</StyledTableCell>
                         <StyledTableCell align="center">BusNumber</StyledTableCell>
                         <StyledTableCell align="center">Source</StyledTableCell>
@@ -152,9 +159,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToState = (dispatch) => {
     return {
-        onFetchBookings: () => dispatch(actions.fetchBookings()), 
+        onViewBookingByUser: (username) => dispatch(actions.viewBookingByUser(username)), 
         onDeleteBooking: (bookingId) => dispatch(actions.deleteBooking(bookingId)) 
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToState)(ViewBooking);
+export default connect(mapStateToProps, mapDispatchToState)(ViewBookingByUser);

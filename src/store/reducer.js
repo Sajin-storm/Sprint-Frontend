@@ -27,7 +27,9 @@ const reducer = (state = initialState, { type, payload }) => {
         return {...state,bookings: payload}
     case "UPDATE_BOOKING":
         return {bookings: state.bookings} 
-    
+    case "FIND_BOOKING_USER":
+        console.log(payload)
+        return {...state,bookings: payload}
     
     
 
@@ -42,8 +44,7 @@ const reducer = (state = initialState, { type, payload }) => {
         return {...state,users: payload}
     case "UPDATE_USER":
         return {message:payload.message,users: state.users}
-    
-    
+     
     case "FIND_BUSOPERATOR":
         console.log(payload)
         return {...state,busOperators: payload}

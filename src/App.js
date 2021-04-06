@@ -11,6 +11,7 @@ import AddBooking from './components/AddBooking';
 import UpdateBooking from './components/UpdateBooking';
 import ViewBooking from './components/ViewBooking';
 import DetailViewBooking from './DetailViewBooking';
+import ViewBookingByUser from './components/ViewBookingByUser'
 
 import AddUser from './components/AddUser'
 import ViewUser from './components/ViewUser'
@@ -332,6 +333,7 @@ function App(props) {
           <Route path="/view">
             <ViewBooking />
           </Route>
+          <Route path="/booking/viewbyusername/:username" component={ViewBookingByUser}/>
           <Route path="/update/:id" component={UpdateBooking}/>
           <Route path="/detailview/:id" component={DetailViewBooking} />
 

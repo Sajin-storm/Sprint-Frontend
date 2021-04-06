@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
       },
     }));
     
-  
+
 
 
 class AddUser extends Component{
@@ -88,9 +88,10 @@ class AddUser extends Component{
 
         const classes = useStyles;
         
-        const handleClick = ()=>{
-          this.addUser.bind(this) 
-        }
+        const handleClick = 
+        
+        this.addUser.bind(this)
+        
 
 
         return (
@@ -146,13 +147,14 @@ class AddUser extends Component{
             variant="contained"
             color="primary"
             //className={classes.submit}
-            onClick={handleClick}
-            //onClick = {handleClick}
+            //onClick={this.addUser.bind(this)}
+            onClick = {handleClick}
+           
           >
               
             Sign Up
           </Button>
-
+          
           <Grid container justify="flex-end">
             <Grid item>
               <Link  variant="body2">

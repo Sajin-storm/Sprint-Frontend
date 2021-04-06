@@ -36,16 +36,16 @@ class AddBooking extends Component {
     }
 
     addBooking(event){
-        console.log('method for adding booking',this.bookingId.current.value)
-        console.log('method for adding booking',this.username.current.value)
-        console.log('method for adding booking',this.busNumber.current.value)
-        console.log('method for adding booking',this.source.current.value)
-        console.log('method for adding booking',this.destination.current.value)
-        console.log('method for adding booking',this.numberOfSeats.current.value)
-        console.log('method for adding booking',this.amountPaid.current.value)
-        console.log('method for adding booking',this.date.current.value)
-        console.log('method for adding booking',this.journeyStartTime.current.value)
-        console.log('method for adding booking',this.journeyEndTime.current.value)
+        console.log('bookingID...',this.bookingId.current.value)
+        console.log('Username...',this.username.current.value)
+        console.log('Bus Number...',this.busNumber.current.value)
+        console.log('Source...',this.source.current.value)
+        console.log('Destination...',this.destination.current.value)
+        console.log('Number of Seats...',this.numberOfSeats.current.value)
+        console.log('Amount paid...',this.amountPaid.current.value)
+        console.log('Date...',this.date.current.value)
+        console.log('Start Time...',this.journeyStartTime.current.value)
+        console.log('End Time...',this.journeyEndTime.current.value)
         
         this.setState = {message: ''}
 

@@ -104,6 +104,30 @@ export const updateBookings = (id, date) =>{
     
 }
 
+export const viewBookingByUsers = (payload) => {
+    return {type: "FIND_BOOKING_USER", payload: payload}
+}
+
+export const viewBookingByUser = (username) => {
+
+    const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+        //body: JSON.stringify({username:username})
+    };
+    return dispatch => {
+        console.log(username)
+        fetch('http://localhost:8080/api/v1/bookings/get/byusername/'+ username, requestOptions)
+            .then(res => {
+                console.log(res);
+                return res.json();
+            })
+            .then(data => {
+                console.log(data);
+                dispatch(findBookings(data));
+            })
+    }
+}
 
 //user
 
@@ -211,6 +235,7 @@ export const updateUsers = (username, password) =>{
     }
     
 }
+
 
 //admin
 
