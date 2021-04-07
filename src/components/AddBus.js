@@ -17,6 +17,12 @@ import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Container from '@material-ui/core/Container';
 
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
+
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 
 
@@ -67,7 +73,7 @@ class AddBus extends Component{
         this.totalSeats = React.createRef();
         this.fare = React.createRef();
 
-        this.state = {message: ''}
+        this.state = {message: '',open: false}
     }
 
     addBus(event){
@@ -79,6 +85,20 @@ class AddBus extends Component{
             fare:this.fare.current.value
         })
     }
+
+    handleClick = () => {
+      this.setState({open: true})
+    };
+
+    handleClose = (event, reason) => {
+      if (reason === 'clickaway') {
+          return;
+      }
+
+      this.setState({open: false})
+    };
+
+
     render() {
         
         
@@ -150,7 +170,11 @@ class AddBus extends Component{
 
           
           <TextField  fullWidth disabled id="outlined-required" label={this.props.message} variant="standard"></TextField>        
-        
+          <Snackbar open={this.state.open} autoHideDuration={6000} onClose={this.handleClose}>
+                <Alert onClose={this.handleClose} severity="success">
+                    {this.props.message}
+                </Alert>
+                </Snackbar>
         </form>
       </div>
       <Box mt={5}>
@@ -159,6 +183,8 @@ class AddBus extends Component{
     </Container>  
 
     
+    
+
 
                  {/* <br/>
                  <div style={{

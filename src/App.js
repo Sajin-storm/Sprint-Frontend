@@ -16,6 +16,7 @@ import ViewBookingByUser from './components/ViewBookingByUser'
 import AddUser from './components/AddUser'
 import ViewUser from './components/ViewUser'
 import UpdateUser from './components/UpdateUser'
+import LoginUser from './components/LoginUser'
 
 import GetAllBusOperator from './components/GetAllBusOperator'
 import ViewBus from'./components/ViewBus'
@@ -50,6 +51,12 @@ import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 
 
 
+//history import parts
+import { createBrowserHistory } from 'history';
+
+//history part
+var hist = createBrowserHistory();
+
 const Accordion = withStyles({
   root: {
     border: '1px solid rgba(0, 0, 0, .125)',
@@ -61,7 +68,7 @@ const Accordion = withStyles({
       display: 'none',
     },
     '&$expanded': {
-      margin: 0,
+      margin: 0,    //this makes the accordion run smoothly
     },
   },
   expanded: {},
@@ -177,6 +184,7 @@ const useStyles1 = makeStyles((theme) => ({
 }));
 
 
+
 function App(props) {
 
   const classes = useStyles();
@@ -201,9 +209,11 @@ function App(props) {
     setOpen(false);
   };
 
+  
+
 
   return (
-    <Router>
+    <Router history={hist}>
 
       <div className={classes.root}>
       <CssBaseline />
@@ -224,8 +234,8 @@ function App(props) {
           >
             <MenuIcon />
           </IconButton>
-          <h4>Online Bus Booking</h4>
-        
+          <h4>Online Bus Booking</h4>&emsp;
+         
         </Toolbar>
     
 
@@ -265,6 +275,8 @@ function App(props) {
           <Link className="nav-link " to="/add" onClick={handleDrawerClose}><h6>Add Booking</h6></Link>
           </li><li>
           <Link className="nav-link " to="/feedback/add" onClick={handleDrawerClose}><h6>Add Feedback</h6></Link>
+          </li><li>
+          <Link className="nav-link " to="/" onClick={handleDrawerClose}><h6>Login</h6></Link>
           </li>
           </ul>
          
@@ -295,7 +307,7 @@ function App(props) {
       </Accordion>
       
       
-      <Link className = "nav-link " to="/view" onClick={handleDrawerClose}><h6>View Booking</h6></Link>
+      {/* <Link className = "nav-link " to="/view" onClick={handleDrawerClose}><h6>View Booking</h6></Link>
       <Divider/>
       <Link className="nav-link " to="/add" onClick={handleDrawerClose}><h6>Add Booking</h6></Link>
       <Divider/>
@@ -308,10 +320,14 @@ function App(props) {
       <Link className="nav-link " to="/feedback/add" onClick={handleDrawerClose}><h6>Add Feedback</h6></Link>
       <Divider/>
       <Link className="nav-link " to="/feedback/getall" onClick={handleDrawerClose}><h6>View Feedback</h6></Link>
-      <Divider/>
+      <Divider/> */}
 
       </Drawer>
       
+
+      
+
+
       <main
         className={clsx(classes1.content, {
           [classes.contentShift]: open,
@@ -327,6 +343,9 @@ function App(props) {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
+        <Route exact path="/">
+            <LoginUser />
+          </Route>
           <Route path="/add">
             <AddBooking />
           </Route>
@@ -343,6 +362,7 @@ function App(props) {
           <Route path="/user/view">
             <ViewUser />
           </Route>
+          
           <Route path="/user/update/:username" component={UpdateUser}/>
 
           <Route path="/admin/getAllBusOperator">

@@ -1,6 +1,8 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux';
+import React,{useRef, useState} from 'react';
+// import { connect } from 'react-redux';
 import * as actions from '../actions/action'
+import { useDispatch, useSelector } from 'react-redux';
+import {  useHistory } from 'react-router-dom';
 
 
 import TextField from '@material-ui/core/TextField';
@@ -11,7 +13,6 @@ import {Typography} from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-import {Link} from "react-router-dom";
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
@@ -57,54 +58,49 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(3, 0, 2),
       },
     }));
+
+export default function Login() {
+      const dispatch = useDispatch();
+      const progress = useSelector(state=>state.progress);
+      //const login = useSelector(state=>state.login);
+      const user = useSelector(state=>state.user);
+      const username = useRef();
+      const password = useRef();
+      //const errorMessage = useSelector(state=>state.errorMessage);
+      const [error, setError] = useState('');
+      const history = useHistory();
     
+      function handleSubmit(e) {
+        e.preventDefault();
+        try {
+          dispatch({type: "PROGRESS", payload: true})
+          // dispatch({type: "LOGIN", payload: true})
+          dispatch(actions.checkUsername(username.current.value));
+          // history.push("/home");
+        } catch (errorm){
+          setError(errorm);
+        }
+      }
 
+      console.log(progress);
+      console.log(user);
+      if(user !== undefined){
+        history.push("/booking/viewbyusername/"+user);
+      }
 
-
-class AddUser extends Component{
-
-    constructor(){
-        super();
-        this.username = React.createRef();
-        this.password = React.createRef();
-
-        this.state = {message: ''}
-    }
-
-    addUser(event){
-        console.log('username...',this.username.current.value)
-        console.log('password...',this.password.current.value)
-
-        this.setState = {message: ''}
-        this.props.onAddUser({
-            username: this.username.current.value,
-            password: this.password.current.value
-        })
-    }
-
-    render() {
+      const classes = useStyles;
         
-        
-
-        const classes = useStyles;
-        
-        const handleClick = 
-        
-        this.addUser.bind(this)
-        
-
-
-        return (
-             <div>
+      return (
+          <div>
                  
-                 <Container component="main" maxWidth="xs">
+          <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign up 
+            Welcome back
         </Typography>
         <br/>
         <form className={classes.form} noValidate>
@@ -118,7 +114,7 @@ class AddUser extends Component{
                 
                 label="Enter Username"
                 
-                inputRef={this.username}
+                inputRef={username}
               />
             </Grid>
             <Grid item xs={12}>
@@ -130,15 +126,9 @@ class AddUser extends Component{
                 label="Password"
                 type="password"
                 id="password"
-                inputRef={this.password}
+                inputRef={password}
               />
             </Grid>
-            {/* <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
-              />
-            </Grid> */}
           </Grid>
           <br/>
           <Button
@@ -148,23 +138,13 @@ class AddUser extends Component{
             color="primary"
             //className={classes.submit}
             //onClick={this.addUser.bind(this)}
-            onClick = {handleClick}
+            onClick = {handleSubmit}
            
-          >
-              
-            Sign Up
+          >   
+            Sign In
           </Button>
-          <br/><br/>
-          <Grid container justify="flex-end">
-            <Grid item>
-              <Link  to={"/user/login"} >
-                <h6>Already have an account? Sign in</h6>
-              </Link>
-            </Grid>
-          </Grid>
           
-          
-          <TextField  fullWidth disabled id="outlined-required" label={this.props.message} variant="standard"></TextField>        
+          {/* <TextField  fullWidth disabled id="outlined-required" label={this.props.message} variant="standard"></TextField>         */}
         
         </form>
       </div>
@@ -181,18 +161,3 @@ class AddUser extends Component{
             
         )
     }
-}
-
-const mapStateToProps = (state) => {
-    return{
-        message: state.message
-    }
-}
-
-const mapDisatchToState = (dispatch) => {
-    return{
-        onAddUser: (payload) => dispatch(actions.addUser(payload))
-    }
-}
-
-export default connect (mapStateToProps, mapDisatchToState)(AddUser);

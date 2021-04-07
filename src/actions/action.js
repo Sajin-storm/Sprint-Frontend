@@ -113,7 +113,7 @@ export const viewBookingByUser = (username) => {
     const requestOptions = {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
-        //body: JSON.stringify({username:username})
+        
     };
     return dispatch => {
         console.log(username)
@@ -130,6 +130,36 @@ export const viewBookingByUser = (username) => {
 }
 
 //user
+
+
+export const getUser = (payload) => {
+    return {type: "GET_USER", payload}
+}
+
+export const errorUser = (payload) => {
+    return {type: "ERROR_USER", payload}
+}
+
+export const checkUsername = (username, password) => {
+    const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    };
+    return dispatch => {
+        fetch('http://localhost:8080/api/v1/users/findbyusername/' + username, requestOptions)
+            .then(res => {
+                console.log(res)
+                if(res.status === 302){
+                    console.log("found");
+                    dispatch(getUser(username));
+                    
+                }
+                else{
+                    dispatch(errorUser("Incorrect credentials"));
+                }
+            })   
+    }
+}
 
 export const saveUser = (payload) => {
     return {type: "ADD_USER", payload: {message: "Successfully added User!"}}
@@ -175,6 +205,39 @@ export const fetchUsers = () => {
             }) 
     }
 }
+
+
+export const signinuser = (payload) => {
+    return {type: "LOGIN_USER", payload}
+}
+
+export const loginUser = (payload) => {
+
+    const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    };
+    return dispatch => {
+        console.log(payload)
+        let message = ''
+        fetch('http://localhost:8080/api/v1/users/findbyusername/'+payload.username, requestOptions)
+        .then(res => {
+            console.log(res);
+            if(res.status === 200){
+                message = 'Logging in'
+            }
+            else{
+                message = 'invalid username or password'
+            }
+            
+        })
+            .then(data => {
+                console.log(data);
+                dispatch(signinuser(data, message));
+            }) 
+    }
+}
+
 
 export const removeUser = (payload) => {
     return {type: "DELETE_USER", payload}
@@ -386,4 +449,12 @@ export const fetchFeedbacks = () => {
                 dispatch(findFeedback(data));
             }) 
     }
+}
+
+export const getBusop = (payload) => {
+    return {type: "GET_BUSOP", payload}
+}
+
+export const errorBusop = (payload) => {
+    return {type: "ERROR_BUSOP", payload}
 }

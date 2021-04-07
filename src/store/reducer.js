@@ -7,7 +7,13 @@ const initialState = {
     users:[],
     busOperators:[],
     feedbacks:[],
-    bus:[]
+    bus:[],
+
+    //login stuffs
+    errorMessage:'',
+    user: undefined,
+    progress: false,
+    login: false,
 }
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -20,7 +26,7 @@ const reducer = (state = initialState, { type, payload }) => {
         return {message: payload.message, bookings: state.bookings}
     case "DELETE_BOOKING":
         var filteredList = state.bookings.filter((booking)=>
-            booking.bookingId !== payload.bookingID)
+            booking.bookingId !== payload.bookingId)
         return {bookings: filteredList}
     case "FIND_BOOKINGS":
         console.log(payload)
@@ -44,7 +50,9 @@ const reducer = (state = initialState, { type, payload }) => {
         return {...state,users: payload}
     case "UPDATE_USER":
         return {message:payload.message,users: state.users}
-     
+    case "LOGIN_USER":
+        return{users: state.users}
+        
     case "FIND_BUSOPERATOR":
         console.log(payload)
         return {...state,busOperators: payload}
@@ -65,6 +73,23 @@ const reducer = (state = initialState, { type, payload }) => {
     case "FIND_FEEDBACK":
         console.log(payload)
         return {...state,feedbacks: payload}
+
+    //bus Op login stuffs 
+    case "PROGRESS":
+        return {...state, progress: payload};
+    case "LOGIN":
+        return {...state, loginSuccess: payload};
+    case "ERROR_BUSOP":
+        return {...state, errorMessage: payload};
+
+
+    //user login stuffs
+    case "GET_USER":
+        return {...state,user: payload};
+    case "ERROR_USER":
+        return {...state, errorMessage: payload}; 
+        
+    
     
     default:
         return state

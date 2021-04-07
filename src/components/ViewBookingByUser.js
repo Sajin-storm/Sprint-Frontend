@@ -6,7 +6,7 @@ import {
     Link
 } from "react-router-dom";
 
-  import { withStyles,makeStyles } from '@material-ui/core/styles';
+  import { withStyles,makeStyles} from '@material-ui/core/styles';
   import DeleteIcon from '@material-ui/icons/Delete';
   import Button from '@material-ui/core/Button';
   import Table from '@material-ui/core/Table';
@@ -16,8 +16,9 @@ import {
   import TableHead from '@material-ui/core/TableHead';
   import TableRow from '@material-ui/core/TableRow';
   import Paper from '@material-ui/core/Paper';
-import { TextField } from '@material-ui/core';
   
+
+
 
 
   const StyledTableCell = withStyles((theme) => ({
@@ -61,7 +62,6 @@ class ViewBookingByUser extends Component {
         this.state = {bookings: []}
     }
 
-    
     viewBookingByUser(event){
         console.log('username...',this.props.match.params.username)
         event.preventDefault();
@@ -82,8 +82,11 @@ class ViewBookingByUser extends Component {
         
         const classes = useStyles;
         //const classes1 = useStyles1;
-        
-        
+        const greet = function(){
+          this.viewBookingByUser.bind(this)
+        };
+        setTimeout(greet, 2000);
+
         
 
         var bookingList = this.props.bookings.map((booking, i)=>{
@@ -119,7 +122,8 @@ class ViewBookingByUser extends Component {
           <div >
             <br/>
             
-            <Button onClick={this.viewBookingByUser.bind(this)}>View</Button>
+            <Button onClick={this.viewBookingByUser.bind(this)}>View</Button> 
+
             <TableContainer component={Paper}>
             <Table className={classes.table} aria-label="sticky table">
                 <TableHead>
