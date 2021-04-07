@@ -14,7 +14,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import {Link} from "react-router-dom";
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import LockTwoToneIcon from '@material-ui/icons/LockTwoTone';
 import Container from '@material-ui/core/Container';
 
 
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
       },
       avatar: {
         margin: theme.spacing(1),
-        backgroundColor: theme.palette.secondary.main,
+        backgroundColor: theme.palette.secondary.dark,
       },
       form: {
         width: '100%', // Fix IE 11 issue.
@@ -99,11 +99,13 @@ class AddUser extends Component{
                  
                  <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
+      <div className={classes.paper} >
+        <div style={{display:"flex",justifyContent:"center"}}>
+        <Avatar className={classes.avatar} style={{backgroundImage:" linear-gradient(blue, red)"}}>
+          <LockTwoToneIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
+        </div>
+        <Typography component="h1" variant="h5" style={{textAlign:"center",textShadow:"2px 2px #E3EEFF"}}>
           Sign up 
         </Typography>
         <br/>
@@ -115,10 +117,9 @@ class AddUser extends Component{
                 variant="outlined"
                 required
                 fullWidth
-                
                 label="Enter Username"
-                
                 inputRef={this.username}
+                style={{background:"#ECF4FF"}}
               />
             </Grid>
             <Grid item xs={12}>
@@ -131,6 +132,7 @@ class AddUser extends Component{
                 type="password"
                 id="password"
                 inputRef={this.password}
+                style={{background:"#ECF4FF"}}
               />
             </Grid>
             {/* <Grid item xs={12}>
@@ -164,7 +166,14 @@ class AddUser extends Component{
           </Grid>
           
           
-          <TextField  fullWidth disabled id="outlined-required" label={this.props.message} variant="standard"></TextField>        
+          <TextField  
+          fullWidth 
+          disabled 
+          id="outlined-required" 
+          label={this.props.message} 
+          variant="standard" 
+          style={{backgroundImage:" linear-gradient(white,#ECF4FF)"}}
+          ></TextField>        
         
         </form>
       </div>

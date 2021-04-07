@@ -19,8 +19,6 @@ import {
   
 
 
-
-
   const StyledTableCell = withStyles((theme) => ({
     head: {
       backgroundColor: theme.palette.common.black,
@@ -53,6 +51,8 @@ const useStyles = makeStyles({
 
 
 
+ 
+
 
 class ViewBookingByUser extends Component {
 
@@ -64,7 +64,7 @@ class ViewBookingByUser extends Component {
 
     viewBookingByUser(event){
         console.log('username...',this.props.match.params.username)
-        event.preventDefault();
+        //event.preventDefault();
         this.props.onViewBookingByUser(this.props.match.params.username)
         
     }
@@ -82,11 +82,10 @@ class ViewBookingByUser extends Component {
         
         const classes = useStyles;
         //const classes1 = useStyles1;
-        const greet = function(){
-          this.viewBookingByUser.bind(this)
-        };
-        setTimeout(greet, 2000);
-
+        
+        
+        // const greet = this.viewBookingByUser.bind(this)
+        // setTimeout(greet, 2000);
         
 
         var bookingList = this.props.bookings.map((booking, i)=>{
@@ -122,7 +121,8 @@ class ViewBookingByUser extends Component {
           <div >
             <br/>
             
-            <Button onClick={this.viewBookingByUser.bind(this)}>View</Button> 
+            
+            <Button onClick={this.viewBookingByUser.bind(this)}>View your bookings</Button>
 
             <TableContainer component={Paper}>
             <Table className={classes.table} aria-label="sticky table">

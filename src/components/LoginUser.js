@@ -15,9 +15,8 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Container from '@material-ui/core/Container';
-
+import LockTwoToneIcon from '@material-ui/icons/LockTwoTone';
 
 
 function Copyright() {
@@ -96,11 +95,13 @@ export default function Login() {
           <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-            Welcome back
+      <div style={{display:"flex",justifyContent:"center"}}>
+        <Avatar className={classes.avatar} style={{backgroundImage:" linear-gradient(blue, red)"}}>
+          <LockTwoToneIcon />
+        </Avatar> 
+        </div>
+        <Typography component="h1" variant="h5" style={{textAlign:"center",textShadow:"2px 2px #E3EEFF"}}>
+            Sign in
         </Typography>
         <br/>
         <form className={classes.form} noValidate>
@@ -111,10 +112,9 @@ export default function Login() {
                 variant="outlined"
                 required
                 fullWidth
-                
                 label="Enter Username"
-                
                 inputRef={username}
+                style={{background:"#ECF4FF"}}
               />
             </Grid>
             <Grid item xs={12}>
@@ -127,6 +127,7 @@ export default function Login() {
                 type="password"
                 id="password"
                 inputRef={password}
+                style={{background:"#ECF4FF"}}
               />
             </Grid>
           </Grid>

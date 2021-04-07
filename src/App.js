@@ -213,13 +213,13 @@ function App(props) {
 
 
   return (
-    <Router history={hist}>
+    <Router history={hist} >
 
-      <div className={classes.root}>
+      <div className={classes.root} >
       <CssBaseline />
       <AppBar
         position="fixed"
-        
+        style={{backgroundImage:" linear-gradient(blue, black)"}}
         className={clsx(classes1.appBar, {
           [classes1.appBarShift]: open,
         })}
@@ -243,7 +243,8 @@ function App(props) {
       </AppBar>
       
       <Drawer
-        className={classes1.drawer}  
+        className={classes1.drawer}
+        style={{textShadow:"0.5px 0.5px #E3EEFF"}}  
         variant="persistent"
         anchor="left"
         open={open}
@@ -252,7 +253,7 @@ function App(props) {
         }}
       >
                 
-        <div className={classes1.drawerHeader}>
+        <div className={classes1.drawerHeader} >
          Back
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
@@ -262,31 +263,31 @@ function App(props) {
         
         <br/>
       
-      <Accordion square expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+      <Accordion square expanded={expanded === 'panel2'} onChange={handleChange('panel2')} style={{background:"linear-gradient(#E3EEFF, white)"}}>
         <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
           <h5>User</h5>
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails style={{background:"white"}}>
           
            <ul>
            <li>
-          <Link className="nav-link " to="/user/add" onClick={handleDrawerClose} ><h6>Add User</h6></Link>
+          <Link className="nav-link " to="/" onClick={handleDrawerClose} ><h6>Add User</h6></Link>
           </li><li>
           <Link className="nav-link " to="/add" onClick={handleDrawerClose}><h6>Add Booking</h6></Link>
           </li><li>
           <Link className="nav-link " to="/feedback/add" onClick={handleDrawerClose}><h6>Add Feedback</h6></Link>
           </li><li>
-          <Link className="nav-link " to="/" onClick={handleDrawerClose}><h6>Login</h6></Link>
+          <Link className="nav-link " to="/user/login" onClick={handleDrawerClose}><h6>Login</h6></Link>
           </li>
           </ul>
          
         </AccordionDetails>
       </Accordion>
-      <Accordion square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+      <Accordion square expanded={expanded === 'panel3'} onChange={handleChange('panel3')} style={{background:"linear-gradient(#E3EEFF, white)"}}>
         <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
           <h5>Admin</h5>
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails style={{background:"white"}}>
           <ul>
           <li>
           <Link className="nav-link " to="/busoperator/addbus" onClick={handleDrawerClose}><h6>Add Bus</h6></Link>
@@ -329,6 +330,7 @@ function App(props) {
 
 
       <main
+      style={{backgroundImage:" linear-gradient(lightBlue, white)"}}
         className={clsx(classes1.content, {
           [classes.contentShift]: open,
         })}
@@ -344,8 +346,9 @@ function App(props) {
             renders the first one that matches the current URL. */}
         <Switch>
         <Route exact path="/">
-            <LoginUser />
+            <AddUser />
           </Route>
+        
           <Route path="/add">
             <AddBooking />
           </Route>
@@ -356,13 +359,13 @@ function App(props) {
           <Route path="/update/:id" component={UpdateBooking}/>
           <Route path="/detailview/:id" component={DetailViewBooking} />
 
-          <Route path="/user/add">
-            <AddUser />
-          </Route>
+          
           <Route path="/user/view">
             <ViewUser />
           </Route>
-          
+          <Route exact path="/user/login">
+            <LoginUser />
+          </Route>
           <Route path="/user/update/:username" component={UpdateUser}/>
 
           <Route path="/admin/getAllBusOperator">
