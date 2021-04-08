@@ -7,6 +7,10 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
+import Grid from '@material-ui/core/Grid';
+import Container from '@material-ui/core/Container';
+import {Typography} from '@material-ui/core';
+
 const useStyles = makeStyles((theme) => ({
     root: {
       '& .MuiTextField-root': {
@@ -43,9 +47,59 @@ class UpdateBooking extends Component {
         return (
             <div>
                 
-                
-
+                <Container component="main" maxWidth="xs">
+                <Typography component="h1" variant="h5" style={{textAlign:"center",textShadow:"2px 2px #E3EEFF"}}>
+                    Update Booking Date
+                </Typography>
                 <br/>
+                <form className={classes.form} noValidate>
+                <Grid container spacing={2}>
+                
+                <Grid item xs={12}>
+                <TextField
+                    defaultValue={this.props.match.params.id} 
+                    id="standard-read-only-input" 
+                    label="Booking ID" 
+                    variant="outlined" 
+                    InputProps={{readOnly: true,}}
+                    required
+                    fullWidth
+                    style={{backgroundImage:" linear-gradient(#ECF4FF, white)"}}
+                    />
+                </Grid>
+
+                <Grid item xs={12}>
+                <TextField
+                    inputRef={this.date} 
+                    id="outlined-required"  
+                    type="date"  
+                    label="Enter new Date to be updated" 
+                    variant="outlined"
+                    required
+                    fullWidth
+                    InputLabelProps={{shrink: true}}
+                    style={{backgroundImage:" linear-gradient(#ECF4FF, white)"}}
+                    />
+                </Grid>
+
+                <Grid item xs={12}>
+                <Button
+                    fullWidth
+                    variant="contained"
+                    color="primary"
+                    className={classes.button} 
+                    onClick={this.updateBooking.bind(this)}
+                    >
+                        Update Date
+                </Button>
+                </Grid>
+
+
+                </Grid>
+                </form>
+                </Container>
+
+                {/* <br/>
                  <form className={classes.root} noValidate autoComplete="off" >
                  &emsp;
                  <TextField  defaultValue={this.props.match.params.id} id="standard-read-only-input" label="Booking ID" variant="filled" InputProps={{readOnly: true,}}></TextField>
@@ -58,7 +112,7 @@ class UpdateBooking extends Component {
                  <br/>
                  &emsp;
                  <Button variant="contained" color="primary" className={classes.button} onClick={this.updateBooking.bind(this)}>Update Date</Button> 
-                 <br/>
+                 <br/> */}
 
 
                  {/* <form className={classes.root} noValidate autoComplete="off" >
