@@ -84,13 +84,14 @@ class AddBooking extends Component {
         return (
 
             <div >
+                
 
 <div style={{display:'flex', justifyContent:'center'}}>&emsp;<h3>Add New Booking</h3></div>
 
 <Container component="main" maxWidth="xs">
-      
-      <Grid container spacing={4}>
-
+      <Paper className={classes.paper} >
+      <Grid container spacing={2}>
+            
         <Grid item xs={12} sm={6}>
           <Paper className={classes.paper}>
           <TextField  
@@ -115,7 +116,7 @@ class AddBooking extends Component {
           </Paper>
         </Grid>
 
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={6} >
           <Paper className={classes.paper}>
           <TextField  
           fullWidth
@@ -235,6 +236,7 @@ class AddBooking extends Component {
       </Grid>
 
       </Grid>
+      </Paper>
       
       </Container>
 
