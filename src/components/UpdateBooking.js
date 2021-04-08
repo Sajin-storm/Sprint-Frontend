@@ -99,21 +99,6 @@ class UpdateBooking extends Component {
                 </form>
                 </Container>
 
-                {/* <br/>
-                 <form className={classes.root} noValidate autoComplete="off" >
-                 &emsp;
-                 <TextField  defaultValue={this.props.match.params.id} id="standard-read-only-input" label="Booking ID" variant="filled" InputProps={{readOnly: true,}}></TextField>
-                 </form>
-                 <br/>
-                 <form className={classes.root} noValidate autoComplete="off">
-                 &emsp;
-                 <TextField  inputRef={this.date} id="outlined-required"  type="date" helperText="Enter new Date to be updated above" variant="filled"></TextField>
-                 </form>
-                 <br/>
-                 &emsp;
-                 <Button variant="contained" color="primary" className={classes.button} onClick={this.updateBooking.bind(this)}>Update Date</Button> 
-                 <br/> */}
-
 
                  {/* <form className={classes.root} noValidate autoComplete="off" >
                  &emsp;

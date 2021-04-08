@@ -119,7 +119,7 @@ class AddUser extends Component{
                 fullWidth
                 label="Enter Username"
                 inputRef={this.username}
-                style={{background:"#ECF4FF"}}
+                style={{backgroundImage:" linear-gradient(#ECF4FF, white)"}}
               />
             </Grid>
             <Grid item xs={12}>
@@ -132,7 +132,7 @@ class AddUser extends Component{
                 type="password"
                 id="password"
                 inputRef={this.password}
-                style={{background:"#ECF4FF"}}
+                style={{backgroundImage:" linear-gradient(#ECF4FF, white)"}}
               />
             </Grid>
             {/* <Grid item xs={12}>

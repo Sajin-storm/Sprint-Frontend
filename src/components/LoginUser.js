@@ -114,7 +114,7 @@ export default function Login() {
                 fullWidth
                 label="Enter Username"
                 inputRef={username}
-                style={{background:"#ECF4FF"}}
+                style={{backgroundImage:" linear-gradient(#ECF4FF, white)"}}
               />
             </Grid>
             <Grid item xs={12}>
@@ -127,18 +127,15 @@ export default function Login() {
                 type="password"
                 id="password"
                 inputRef={password}
-                style={{background:"#ECF4FF"}}
+                style={{backgroundImage:" linear-gradient(#ECF4FF, white)"}}
               />
             </Grid>
           </Grid>
           <br/>
           <Button
-            // type="submit"
             fullWidth
             variant="contained"
             color="primary"
-            //className={classes.submit}
-            //onClick={this.addUser.bind(this)}
             onClick = {handleSubmit}
            
           >   
