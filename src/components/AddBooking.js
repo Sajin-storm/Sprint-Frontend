@@ -86,14 +86,14 @@ class AddBooking extends Component {
             <div >
                 
 
-<div style={{display:'flex', justifyContent:'center'}}>&emsp;<h3>Add New Booking</h3></div>
+<div style={{display:'flex', justifyContent:'center',textShadow:"2px 2px #E3EEFF"}}>&emsp;<h3>Add New Booking</h3></div>
 
 <Container component="main" maxWidth="xs">
       <Paper className={classes.paper} >
       <Grid container spacing={2}>
             
         <Grid item xs={12} sm={6}>
-          <Paper className={classes.paper}>
+          <Paper className={classes.paper} style={{backgroundImage:" linear-gradient(#ECF4FF, white)"}}>
           <TextField  
           fullWidth
           inputRef={this.bookingId} 
@@ -105,7 +105,7 @@ class AddBooking extends Component {
         </Grid>
 
         <Grid item xs={12} sm={6}>
-          <Paper className={classes.paper}>
+          <Paper className={classes.paper} style={{backgroundImage:" linear-gradient(#ECF4FF, white)"}}>
               <TextField 
               fullWidth
               inputRef={this.username} 
@@ -117,7 +117,7 @@ class AddBooking extends Component {
         </Grid>
 
         <Grid item xs={12} sm={6} >
-          <Paper className={classes.paper}>
+          <Paper className={classes.paper} style={{backgroundImage:" linear-gradient(#ECF4FF, white)"}}>
           <TextField  
           fullWidth
           inputRef={this.busNumber} 
@@ -129,7 +129,7 @@ class AddBooking extends Component {
         </Grid>
 
         <Grid item xs={12} sm={6}>
-          <Paper className={classes.paper}>
+          <Paper className={classes.paper} style={{backgroundImage:" linear-gradient(#ECF4FF, white)"}}>
           <TextField  
           fullWidth
           inputRef={this.source} 
@@ -141,7 +141,7 @@ class AddBooking extends Component {
         </Grid>
 
         <Grid item xs={12} sm={6}>
-          <Paper className={classes.paper}>
+          <Paper className={classes.paper} style={{backgroundImage:" linear-gradient(#ECF4FF, white)"}}>
           <TextField  
           fullWidth
           inputRef={this.destination} 
@@ -153,7 +153,7 @@ class AddBooking extends Component {
         </Grid>
 
         <Grid item xs={12} sm={6}>
-          <Paper className={classes.paper}>
+          <Paper className={classes.paper} style={{backgroundImage:" linear-gradient(#ECF4FF, white)"}}>
           <TextField  
           fullWidth
           inputRef={this.numberOfSeats} 
@@ -165,7 +165,7 @@ class AddBooking extends Component {
         </Grid>
 
         <Grid item xs={12} sm={6}>
-          <Paper className={classes.paper}>
+          <Paper className={classes.paper} style={{backgroundImage:" linear-gradient(#ECF4FF, white)"}}>
           <TextField 
           fullWidth
           inputRef={this.amountPaid} 
@@ -177,7 +177,7 @@ class AddBooking extends Component {
         </Grid>
 
         <Grid item xs={12} sm={6}>
-          <Paper className={classes.paper}>
+          <Paper className={classes.paper} style={{backgroundImage:" linear-gradient(#ECF4FF, white)"}}>
           <TextField  
           fullWidth
           inputRef={this.date} 
@@ -191,7 +191,7 @@ class AddBooking extends Component {
         </Grid>
 
         <Grid item xs={12} sm={6}>
-          <Paper className={classes.paper}>
+          <Paper className={classes.paper} style={{backgroundImage:" linear-gradient(#ECF4FF, white)"}}>
           <TextField  
           fullWidth
           inputRef={this.journeyStartTime} 
@@ -205,7 +205,7 @@ class AddBooking extends Component {
         </Grid>
 
         <Grid item xs={12} sm={6}>
-          <Paper className={classes.paper}>
+          <Paper className={classes.paper} style={{backgroundImage:" linear-gradient(#ECF4FF, white)"}}>
           <TextField  
           fullWidth
           inputRef={this.journeyEndTime} 
@@ -228,7 +228,6 @@ class AddBooking extends Component {
             color="primary"
             //className={classes.submit}
             onClick={this.addBooking.bind(this)}
-           
           >
               
             Add Booking
