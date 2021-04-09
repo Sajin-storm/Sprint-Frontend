@@ -106,7 +106,7 @@ class AddUser extends Component{
         </Avatar>
         </div>
         <Typography component="h1" variant="h5" style={{textAlign:"center",textShadow:"2px 2px #E3EEFF"}}>
-          Sign up 
+          Sign up (New User)
         </Typography>
         <br/>
         <form className={classes.form} noValidate>
@@ -151,15 +151,13 @@ class AddUser extends Component{
             //className={classes.submit}
             //onClick={this.addUser.bind(this)}
             onClick = {handleClick}
-           
           >
-              
             Sign Up
           </Button>
           <br/><br/>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link  to={"/user/login"} >
+              <Link  to={"/"} >
                 <h6>Already have an account? Sign in</h6>
               </Link>
             </Grid>

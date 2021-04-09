@@ -4,8 +4,9 @@ import * as actions from '../actions/action'
 
 
 import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles,withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -51,7 +52,9 @@ class AddFeedback extends Component{
             }}>
 
             <form className={classes.root} noValidate autoComplete="off" >
-                
+
+            <div style={{textAlign:"center"}}><h5>Add Feedback</h5></div>
+            <br/>
             <TextField  inputRef={this.username} id="outlined-required" label="Enter username" variant="filled" ></TextField>
             <br/><br/>
             <TextField  inputRef={this.rating} id="outlined-required" label="Enter rating" variant="filled" ></TextField>
@@ -60,7 +63,7 @@ class AddFeedback extends Component{
             <br/><br/>
             <TextField  inputRef={this.routeName} id="outlined-required" label="Enter routeName" variant="filled" ></TextField>
             <br/><br/>
-            <Button variant="contained" color="primary" className={classes.button} onClick={this.addFeedback.bind(this)}>Add Booking</Button> 
+            <Button fullWidth variant="contained" color="primary" onClick={this.addFeedback.bind(this)}>Add Feedback</Button> 
             </form>
                  
             </div>

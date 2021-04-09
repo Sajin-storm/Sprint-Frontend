@@ -8,6 +8,9 @@ import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
+import DirectionsBusTwoToneIcon from '@material-ui/icons/DirectionsBusTwoTone';
+import {Typography} from '@material-ui/core';
+import Avatar from '@material-ui/core/Avatar';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -26,9 +29,9 @@ const useStyles = makeStyles((theme) => ({
 
 class AddBooking extends Component {
 
-    constructor(){
-    super();
-    this.bookingId = React.createRef();
+  constructor(){
+  super();
+  this.bookingId = React.createRef();
 	this.username = React.createRef();
 	this.busNumber = React.createRef();
 	this.source = React.createRef();
@@ -74,145 +77,153 @@ class AddBooking extends Component {
 
     render() {
 
+      const classes = useStyles;
         
-          
-
-        const classes = useStyles;
-        
-
-   
         return (
 
-            <div >
-                
+        <div >
+        <div style={{display:"flex",justifyContent:"center"}}>
+        <Avatar className={classes.avatar} style={{backgroundImage:" linear-gradient(blue, black)"}}>
+        <DirectionsBusTwoToneIcon/>
+        </Avatar>
+        </div>  
+        <div style={{display:'flex', justifyContent:'center',textShadow:"2px 2px #E3EEFF"}}><h3>Add New Booking</h3></div>
+        <br/>
 
-<div style={{display:'flex', justifyContent:'center',textShadow:"2px 2px #E3EEFF"}}>&emsp;<h3>Add New Booking</h3></div>
-
-<Container component="main" maxWidth="xs">
-      <Paper className={classes.paper} >
+        <Container component="main" maxWidth="xs">
+      
       <Grid container spacing={2}>
             
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12}>
           <Paper className={classes.paper} style={{backgroundImage:" linear-gradient(#ECF4FF, white)"}}>
           <TextField  
           fullWidth
+          required={true}
           inputRef={this.bookingId} 
           id="outlined-required" 
           label="Enter Booking ID" 
-          variant="filled" 
+          variant="outlined" 
           ></TextField>
           </Paper>
         </Grid>
 
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12}>
           <Paper className={classes.paper} style={{backgroundImage:" linear-gradient(#ECF4FF, white)"}}>
               <TextField 
               fullWidth
               inputRef={this.username} 
               id="outlined-required" 
               label="Enter Username" 
-              variant="filled" 
+              variant="outlined" 
               ></TextField>
           </Paper>
         </Grid>
 
-        <Grid item xs={12} sm={6} >
+        <Grid item xs={12}  >
           <Paper className={classes.paper} style={{backgroundImage:" linear-gradient(#ECF4FF, white)"}}>
           <TextField  
           fullWidth
+          required={true}
           inputRef={this.busNumber} 
           id="outlined-required" 
           label="Enter Bus Number" 
-          variant="filled" 
+          variant="outlined" 
           ></TextField>
           </Paper>
         </Grid>
 
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} >
           <Paper className={classes.paper} style={{backgroundImage:" linear-gradient(#ECF4FF, white)"}}>
           <TextField  
           fullWidth
+          required={true}
           inputRef={this.source} 
           id="outlined-required" 
           label="Enter Source" 
-          variant="filled" 
+          variant="outlined" 
           ></TextField>
           </Paper>
         </Grid>
 
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12}>
           <Paper className={classes.paper} style={{backgroundImage:" linear-gradient(#ECF4FF, white)"}}>
           <TextField  
           fullWidth
+          required={true}
           inputRef={this.destination} 
           id="outlined-required" 
           label="Enter Destination" 
-          variant="filled" 
+          variant="outlined" 
           ></TextField>
           </Paper>
         </Grid>
 
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} >
           <Paper className={classes.paper} style={{backgroundImage:" linear-gradient(#ECF4FF, white)"}}>
           <TextField  
           fullWidth
+          required={true}
           inputRef={this.numberOfSeats} 
           id="outlined-required" 
           label="Enter number of seats" 
-          variant="filled" 
+          variant="outlined" 
           ></TextField>
           </Paper>
         </Grid>
 
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} >
           <Paper className={classes.paper} style={{backgroundImage:" linear-gradient(#ECF4FF, white)"}}>
           <TextField 
           fullWidth
+          required={true}
           inputRef={this.amountPaid} 
           id="outlined-required" 
           label="Enter Amount" 
-          variant="filled" 
+          variant="outlined" 
           ></TextField>
           </Paper>
         </Grid>
 
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} >
           <Paper className={classes.paper} style={{backgroundImage:" linear-gradient(#ECF4FF, white)"}}>
           <TextField  
           fullWidth
+          required={true}
           inputRef={this.date} 
           id="outlined-required" 
           label="Enter date" 
           type='date' 
-          variant="filled" 
+          variant="outlined" 
           InputLabelProps={{shrink: true}}
           ></TextField>
           </Paper>
         </Grid>
 
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12}>
           <Paper className={classes.paper} style={{backgroundImage:" linear-gradient(#ECF4FF, white)"}}>
           <TextField  
           fullWidth
+          required={true}
           inputRef={this.journeyStartTime} 
           id="outlined-required" 
           type='time' 
           label="Enter start time" 
-          variant="filled" 
+          variant="outlined" 
           InputLabelProps={{shrink: true}}
           ></TextField>
           </Paper>
         </Grid>
 
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} >
           <Paper className={classes.paper} style={{backgroundImage:" linear-gradient(#ECF4FF, white)"}}>
           <TextField  
           fullWidth
+          required={true}
           inputRef={this.journeyEndTime} 
           id="outlined-required" 
           type='time' 
           label="Enter end time" 
-          variant="filled" 
+          variant="outlined" 
           InputLabelProps={{shrink: true}}
           ></TextField>
           </Paper>
@@ -235,7 +246,7 @@ class AddBooking extends Component {
       </Grid>
 
       </Grid>
-      </Paper>
+      
       
       </Container>
 

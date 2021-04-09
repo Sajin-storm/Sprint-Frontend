@@ -49,8 +49,12 @@ import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 
+import Paper from '@material-ui/core/Paper';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import { useSelector } from 'react-redux';
 
-
+import AdminScreen from './Screens/AdminScreen'
 //history import parts
 import { createBrowserHistory } from 'history';
 
@@ -209,10 +213,11 @@ function App(props) {
     setOpen(false);
   };
 
-  
-
+  const username = useSelector(state=>state.users);
 
   return (
+
+
     <Router history={hist} >
 
       <div className={classes.root} >
@@ -234,11 +239,9 @@ function App(props) {
           >
             <MenuIcon />
           </IconButton>
-          <h4>Online Bus Booking</h4>&emsp;
+          <h2><i><b>Blue-Bus</b></i></h2>
          
         </Toolbar>
-    
-
 
       </AppBar>
       
@@ -271,14 +274,18 @@ function App(props) {
           
            <ul>
            <li>
-          <Link className="nav-link " to="/" onClick={handleDrawerClose} ><h6>Add User</h6></Link>
+          <Link className="nav-link " to="/user/add" onClick={handleDrawerClose} ><h6>Add User</h6></Link>
           </li><li>
           <Link className="nav-link " to="/add" onClick={handleDrawerClose}><h6>Add Booking</h6></Link>
           </li><li>
           <Link className="nav-link " to="/feedback/add" onClick={handleDrawerClose}><h6>Add Feedback</h6></Link>
           </li><li>
-          <Link className="nav-link " to="/user/login" onClick={handleDrawerClose}><h6>Login</h6></Link>
+          <Link className="nav-link " to="/" onClick={handleDrawerClose}><h6>Login</h6></Link>
           </li>
+          <li>
+          <Link className="nav-link " to="/adminscreen" onClick={handleDrawerClose}><h6>admin Screen</h6></Link>
+          </li>
+          
           </ul>
          
         </AccordionDetails>
@@ -306,95 +313,117 @@ function App(props) {
 
         </AccordionDetails>
       </Accordion>
-      
-      
-      {/* <Link className = "nav-link " to="/view" onClick={handleDrawerClose}><h6>View Booking</h6></Link>
-      <Divider/>
-      <Link className="nav-link " to="/add" onClick={handleDrawerClose}><h6>Add Booking</h6></Link>
-      <Divider/>
-      <Link className="nav-link " to="/user/view" onClick={handleDrawerClose}><h6>View User</h6></Link>
-      <Divider/>
-      <Link className="nav-link " to="/user/add" onClick={handleDrawerClose}><h6>Add User</h6></Link>
-      <Divider/>
-      <Link className="nav-link " to="/admin/getAllBusOperator" onClick={handleDrawerClose}><h6>View Bus Operator</h6></Link>
-      <Divider/>
-      <Link className="nav-link " to="/feedback/add" onClick={handleDrawerClose}><h6>Add Feedback</h6></Link>
-      <Divider/>
-      <Link className="nav-link " to="/feedback/getall" onClick={handleDrawerClose}><h6>View Feedback</h6></Link>
-      <Divider/> */}
-
       </Drawer>
       
-
-      
-
-
       <main
       style={{backgroundImage:" linear-gradient(lightBlue, white)"}}
         className={clsx(classes1.content, {
           [classes.contentShift]: open,
         })}
       >
-        
         <div className={classes1.drawerHeader} />
-        
         </main>
+
 
       <div>
 
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Switch>
         <Route exact path="/">
-            <AddUser />
-          </Route>
-        
-          <Route path="/add">
-            <AddBooking />
-          </Route>
-          <Route path="/view">
-            <ViewBooking />
-          </Route>
-          <Route path="/booking/viewbyusername/:username" component={ViewBookingByUser}/>
-          <Route path="/update/:id" component={UpdateBooking}/>
-          <Route path="/detailview/:id" component={DetailViewBooking} />
-
-          
-          <Route path="/user/view">
-            <ViewUser />
-          </Route>
-          <Route exact path="/user/login">
             <LoginUser />
           </Route>
-          <Route path="/user/update/:username" component={UpdateUser}/>
+        
+          <Route exact path="/add">
+            <AddBooking />
+          </Route>
+          <Route exact path="/view">
+            <ViewBooking />
+          </Route>
+          <Route exact path="/booking/viewbyusername/:username" component={ViewBookingByUser}/>
+          <Route exact path="/update/:id" component={UpdateBooking}/>
+          <Route exact path="/detailview/:id" component={DetailViewBooking} />
 
-          <Route path="/admin/getAllBusOperator">
+          <Route exact path="/user/view">
+            <ViewUser />
+          </Route>
+          <Route exact path="/user/add">
+            <AddUser />
+          </Route>
+          <Route exact path="/user/update/:username" component={UpdateUser}/>
+
+          <Route exact path="/admin/getAllBusOperator">
             <GetAllBusOperator />
           </Route>
-          <Route path="/admin/viewbus">
+          <Route exact path="/admin/viewbus">
             <ViewBus />
           </Route>
-          <Route path="/busoperator/addbus">
+          <Route exact path="/busoperator/addbus">
             <AddBus />
           </Route>
 
-          <Route path="/feedback/add">
+          <Route exact path="/feedback/add">
             <AddFeedback />
           </Route>
-          <Route path="/feedback/getall">
+          <Route exact path="/feedback/getall">
             <ViewFeedback />
           </Route>
-
+          <Route exact path="/adminscreen">
+            <AdminScreen />
+          </Route>
+          
         </Switch>
-
       </div>
-      
       </div>
-
-    
     </Router>
   );
 }
 
 
 export default App;
+
+/* <div>
+    <Router history={hist} >
+
+      <div>
+        <Switch>
+
+        <Route exact path="/">
+          <LoginUser />
+        </Route>
+
+        <Route exact path="/user/add">
+          <AddUser />
+        </Route>
+
+        <div>
+          <div style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center"
+          }}>   
+            <Paper square>
+            <Tabs
+                indicatorColor="primary"
+                textColor="primary">
+                  <Tab label ="View Booking made by you" to={"/booking/viewbyusername/"+username} component={Link}><Link to={"/booking/viewbyusername/:username"}></Link></Tab>
+                  <Tab label ="Add new Booking" to="/add" component={Link}/>
+                  <Tab label ="Add Feedback" to="/feedback/add" component={Link}/>
+                </Tabs>
+            </Paper>
+          </div>
+          <Route exact path={"/booking/viewbyusername/:username"} component={ViewBookingByUser}/>
+          <Route exact path="/add">
+            <AddBooking />
+          </Route>
+          <Route exact path="/feedback/add">
+            <AddFeedback />
+          </Route>
+          </div>
+        </Switch>
+      </div>
+
+
+    </Router>
+    <Router>
+          
+    </Router>
+    </div> */

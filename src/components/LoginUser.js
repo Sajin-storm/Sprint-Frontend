@@ -9,6 +9,7 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import {Typography} from '@material-ui/core';
+import {Link} from "react-router-dom";
 
 import Avatar from '@material-ui/core/Avatar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -101,7 +102,7 @@ export default function Login() {
         </Avatar> 
         </div>
         <Typography component="h1" variant="h5" style={{textAlign:"center",textShadow:"2px 2px #E3EEFF"}}>
-            Sign in
+            Welcome Sign in
         </Typography>
         <br/>
         <form className={classes.form} noValidate>
@@ -137,11 +138,18 @@ export default function Login() {
             variant="contained"
             color="primary"
             onClick = {handleSubmit}
-           
           >   
             Sign In
           </Button>
-          
+          <br/><br/>
+          <Grid container justify="flex-end">
+            <Grid item>
+              <Link  to={"/user/add"} >
+                <h6>Don't have an account? Sign up</h6>
+              </Link>
+            </Grid>
+          </Grid>
+
           {/* <TextField  fullWidth disabled id="outlined-required" label={this.props.message} variant="standard"></TextField>         */}
         
         </form>

@@ -52,6 +52,10 @@ class GetAllBusOperator extends Component{
         this.props.onFetchBusOperators()
     }
 
+    deleteBusOperator(){
+      
+    }
+
     render(){
 
         const classes = useStyles

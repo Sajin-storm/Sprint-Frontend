@@ -1,3 +1,171 @@
+// import React, { useEffect  } from 'react'
+// import {
+//     Link
+//   } from "react-router-dom";
+// import { connect } from 'react-redux';
+// import * as actions from '../actions/action';
+// import DeleteIcon from '@material-ui/icons/Delete';
+// import Button from '@material-ui/core/Button';
+// import Table from '@material-ui/core/Table';
+// import TableBody from '@material-ui/core/TableBody';
+// import TableCell from '@material-ui/core/TableCell';
+// import TableContainer from '@material-ui/core/TableContainer';
+// import TableHead from '@material-ui/core/TableHead';
+// import TableRow from '@material-ui/core/TableRow';
+// import Paper from '@material-ui/core/Paper';
+// import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
+// import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+// import Box from '@material-ui/core/Box';
+// import Collapse from '@material-ui/core/Collapse';
+// import IconButton from '@material-ui/core/IconButton';
+// import Typography from '@material-ui/core/Typography';
+// import { withRouter } from "react-router";
+// import { useDispatch, useSelector } from 'react-redux';
+// import { makeStyles,withStyles } from '@material-ui/core/styles'
+
+// const StyledTableCell = withStyles((theme) => ({
+//       head: {
+//         backgroundColor: theme.palette.common.black,
+//         color: theme.palette.common.white,
+//       },
+//       body: {
+//         fontSize: 14,
+//       },
+//     }))(TableCell);
+    
+//     const StyledTableRow = withStyles((theme) => ({
+//       root: {
+//         '&:nth-of-type(odd)': {
+//           backgroundColor: theme.palette.action.hover,
+//         },
+//       },
+//     }))(TableRow);
+
+  
+// const useStyles = ({
+//     table: {
+//       minWidth: 650,
+//     },
+//   },
+//   (theme) => ({
+//     button: {
+//       margin: theme.spacing(1),
+//     },
+//     menuButton: {
+//         marginRight: theme.spacing(2),
+//     },
+//   }));
+
+// function ViewBookingByUser(){
+
+//     // constructor(props){
+//     //     super(props);
+//     //     // this.username = React.createRef();
+//     //     this.state = {userBookings: [], message: '', left: false, open: false}
+//     // }
+
+//     // componentDidMount() {
+//     //     console.log('Initialization...')
+//     //     // console.log(this.props.match.params.username)
+//     //     console.log(this.state.username);
+//     //     // this.props.onFetchBookings(this.props.match.params.id)
+//     // }
+//     const userBookings = useSelector(state=>state.userBookings);
+//     const username = useSelector(state=>state.users);
+//     const [open, setOpen] = React.useState(false);
+//     const dispatch = useDispatch();
+//     useEffect(() => {
+//         console.log("I have been mounted")
+//         console.log(username);
+//         dispatch(actions.viewBookingByUser(username))
+//         dispatch(actions.deleteBooking(username))
+//       }, [])
+
+
+//         const classes = useStyles;
+
+//         // const [state, setState] = React.useState({
+//         //     top: false,
+//         //     left: false,
+//         //     bottom: false,
+//         //     right: false,
+//         //   });
+
+//         var bookingList = userBookings.map((booking, i)=>{
+//             return (    
+//                 <React.Fragment>  
+//                 <StyledTableRow key={i}>
+                    
+//                   <StyledTableCell align="center">{booking.id}</StyledTableCell>
+//                   <StyledTableCell align="center"><Link to={"/detailview/" + booking.bookingId}>{booking.bookingId}</Link></StyledTableCell>
+//                   <StyledTableCell align="center">{booking.username}</StyledTableCell>
+//                   <StyledTableCell align="center">{booking.busNumber}</StyledTableCell>
+//                   <StyledTableCell align="center">{booking.source}</StyledTableCell>
+//                   <StyledTableCell align="center">{booking.destination}</StyledTableCell>
+//                   <StyledTableCell align="center">{booking.date}</StyledTableCell>
+//                   <StyledTableCell align="center"><Button variant="contained" color="secondary" className={classes.button}
+//                     startIcon={<DeleteIcon />} onClick={this.deleteBooking.bind(this, booking.bookingId)}>Delete</Button>
+//                   </StyledTableCell>
+//                   <StyledTableCell>
+//                   <Link to={"/update/" + booking.bookingId}>
+//                   <Button 
+//                     variant="contained" 
+//                     color="primary">
+//                       Update
+//                   </Button>
+//                   </Link>
+//                   </StyledTableCell>
+//                 </StyledTableRow>
+//               </React.Fragment>  
+//             )
+//         })
+//         return (
+//             <div>
+//             <TableContainer component={Paper}>
+//               <Table className={classes.table} aria-label="sticky table">
+//                  <TableHead>
+//                      <StyledTableRow>
+//                          <StyledTableCell align="center">ID</StyledTableCell>
+//                          <StyledTableCell align="center">Booking ID</StyledTableCell>
+//                          <StyledTableCell align="center">Username</StyledTableCell>
+//                          <StyledTableCell align="center">BusNumber</StyledTableCell>
+//                          <StyledTableCell align="center">Source</StyledTableCell>
+//                          <StyledTableCell align="center">Destination</StyledTableCell>
+//                          <StyledTableCell align="center">Date yyyy/mm/dd</StyledTableCell>
+//                          <StyledTableCell align="center">Delete</StyledTableCell>
+//                          <StyledTableCell align="center">Update</StyledTableCell>
+//                      </StyledTableRow>
+//                  </TableHead>
+//                  <TableBody>
+//                      {bookingList}
+//                  </TableBody>
+//              </Table>
+//          </TableContainer>
+//             </div>
+//         )
+//     }
+
+
+// const mapStateToProps = (state) => {
+
+//     return {
+//         username: state.users,
+//         userBookings: state.userBookings
+//     }
+// }
+
+// const mapDispatchToState = (dispatch) => {
+//     return {
+//         onViewBookingByUser: (username) => dispatch(actions.viewBookingByUser(username))
+//     }
+// }
+
+// // export default ViewBooking;
+// export default withRouter(connect(mapStateToProps, mapDispatchToState)(ViewBookingByUser));
+
+
+
+
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import * as actions from '../actions/action'
@@ -16,7 +184,9 @@ import {
   import TableHead from '@material-ui/core/TableHead';
   import TableRow from '@material-ui/core/TableRow';
   import Paper from '@material-ui/core/Paper';
-  
+  import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+
 
 
   const StyledTableCell = withStyles((theme) => ({
@@ -106,10 +276,17 @@ class ViewBookingByUser extends Component {
                     <StyledTableCell align="center">{booking.destination}</StyledTableCell>
                     <StyledTableCell align="center">{booking.date}</StyledTableCell>
                     <StyledTableCell align="center"><Button variant="contained" color="secondary" className={classes.button}
-                        startIcon={<DeleteIcon />} onClick={this.deleteBooking.bind(this, booking.bookingId)}>Delete</Button> &nbsp;
+                        startIcon={<DeleteIcon />} onClick={this.deleteBooking.bind(this, booking.bookingId)}>Delete</Button>
                     </StyledTableCell>
-                    <StyledTableCell><Link to={"/update/" + booking.bookingId}><Button variant="contained" color="primary">
-                            Update</Button></Link></StyledTableCell>
+                    <StyledTableCell>
+                      <Link to={"/update/" + booking.bookingId}>
+                        <Button 
+                        variant="contained" 
+                        color="primary">
+                          Update
+                        </Button>
+                      </Link>
+                  </StyledTableCell>
                 </StyledTableRow>
                 
             )
@@ -121,8 +298,51 @@ class ViewBookingByUser extends Component {
           <div >
             <br/>
             
-            
-            <Button onClick={this.viewBookingByUser.bind(this)}>View your bookings</Button>
+            <Paper square style={{display:"flex",justifyContent:"center"}}>
+              <Tabs
+                value={0}
+                indicatorColor="primary"
+                textColor="primary"
+                variant="scrollable"
+                >
+                <Tab label="View your Booking" onClick={this.viewBookingByUser.bind(this)} />
+               
+                <Tab label="Add Booking" to="/add"  component={Link}/>
+                <Tab label="Add feedback" to="/feedback/add" component={Link} />
+                <Tab label="Update Password" to={"/user/update/"+this.props.match.params.username} component={Link}/>
+              </Tabs>
+            </Paper>
+
+            {/* <Button  
+              variant="contained" 
+              color="primary" 
+              onClick={this.viewBookingByUser.bind(this)}
+              >View your bookings
+            </Button>
+
+            <Link to='/add'>
+            <Button  
+              variant="contained" 
+              color="primary" 
+              >Add Booking
+            </Button>
+            </Link>
+
+            <Link to="/feedback/add">
+            <Button  
+              variant="contained" 
+              color="primary" 
+              >Add Feedback
+            </Button>
+            </Link>
+
+            <Link to={"/user/update/"+this.props.match.params.username}>
+            <Button  
+              variant="contained" 
+              color="primary" 
+              >Update your password
+            </Button>
+            </Link> */}
 
             <TableContainer component={Paper}>
             <Table className={classes.table} aria-label="sticky table">

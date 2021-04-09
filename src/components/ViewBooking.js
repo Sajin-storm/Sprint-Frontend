@@ -96,11 +96,11 @@ class ViewBooking extends Component {
                     <StyledTableCell align="center">{booking.source}</StyledTableCell>
                     <StyledTableCell align="center">{booking.destination}</StyledTableCell>
                     <StyledTableCell align="center">{booking.date}</StyledTableCell>
-                    <StyledTableCell align="center"><Button variant="contained" color="secondary" 
+                    {/* <StyledTableCell align="center"><Button variant="contained" color="secondary" 
                         startIcon={<DeleteIcon />} onClick={this.deleteBooking.bind(this, booking.bookingId)}>Delete</Button>
                     </StyledTableCell>
                     <StyledTableCell align="center"><Link to={"/update/" + booking.bookingId}><Button variant="contained" color="primary">
-                            Update</Button></Link></StyledTableCell>
+                            Update</Button></Link></StyledTableCell> */}
                 </StyledTableRow>
                     
             )
@@ -124,8 +124,7 @@ class ViewBooking extends Component {
                         <StyledTableCell align="center">Source</StyledTableCell>
                         <StyledTableCell align="center">Destination</StyledTableCell>
                         <StyledTableCell align="center">Date yyyy/mm/dd</StyledTableCell>
-                        <StyledTableCell align="center">Delete</StyledTableCell>
-                        <StyledTableCell align="center">Update</StyledTableCell>
+                        
                     </StyledTableRow>
                 </TableHead>
                 <TableBody>
