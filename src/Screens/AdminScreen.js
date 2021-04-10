@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
+import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -60,7 +60,7 @@ export default function AdminScreen() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="default">
+      <Paper square style={{display:"flex",justifyContent:"center"}}>
         <Tabs
           value={value}
           onChange={handleChange}
@@ -77,7 +77,7 @@ export default function AdminScreen() {
           <Tab label="View Booking" to="/view" component={Link}/>
           <Tab label="View Feedback" to="/feedback/getall" component={Link}/>
         </Tabs>
-      </AppBar>
+      </Paper>
     </div>
   );
 }

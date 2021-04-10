@@ -26,6 +26,8 @@ import AddBus from './components/AddBus'
 import AddFeedback from './components/AddFeedback'
 import ViewFeedback from './components/ViewFeedback'
 
+import LoginAdmin from './components/LoginAdmin'
+import Screen1 from './Screens/Screen1'
 import { makeStyles,useTheme,withStyles } from '@material-ui/core/styles';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
@@ -285,6 +287,9 @@ function App(props) {
           <li>
           <Link className="nav-link " to="/adminscreen" onClick={handleDrawerClose}><h6>admin Screen</h6></Link>
           </li>
+          <li>
+          <Link className="nav-link " to="/screen1" onClick={handleDrawerClose}><h6>front Screen</h6></Link>
+          </li>
           
           </ul>
          
@@ -296,6 +301,9 @@ function App(props) {
         </AccordionSummary>
         <AccordionDetails style={{background:"white"}}>
           <ul>
+          <li>
+          <Link className= "nav-link " to="/admin/login" onClick={handleDrawerClose}><h6>login admin</h6></Link>
+          </li>
           <li>
           <Link className="nav-link " to="/busoperator/addbus" onClick={handleDrawerClose}><h6>Add Bus</h6></Link>
           </li><li>
@@ -368,6 +376,12 @@ function App(props) {
           </Route>
           <Route exact path="/adminscreen">
             <AdminScreen />
+          </Route>
+          <Route exact path="/admin/login">
+            <LoginAdmin />
+          </Route>
+          <Route exact path="/screen1">
+            <Screen1 />
           </Route>
           
         </Switch>

@@ -1,3 +1,94 @@
+//login parts
+//user login
+export const getUser = (payload) => {
+    return {type: "GET_USER", payload}
+}
+
+export const errorUser = (payload) => {
+    return {type: "ERROR_USER", payload}
+}
+
+export const checkUsername = (username, password) => {
+    const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    };
+    return dispatch => {
+        fetch('http://localhost:8080/api/v1/users/signin/' + username +':'+ password, requestOptions)
+            .then(res => {
+                console.log(res)
+                if(res.status === 302){
+                    console.log("found");
+                    dispatch(getUser(username));
+                    
+                }
+                else{
+                    dispatch(errorUser("Incorrect credentials"));
+                }
+            })   
+    }
+}
+
+//admin login
+export const getAdmin = (payload) => {
+    return {type: "GET_ADMIN", payload}
+}
+
+export const errorAdmin = (payload) => {
+    return {type: "ERROR_ADMIN", payload}
+}
+
+export const checkAdminUsername = (adminUsername, password) => {
+    const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    };
+    return dispatch => {
+        fetch('http://localhost:8080/api/v1/admin/signin/' + adminUsername +':'+ password, requestOptions)
+            .then(res => {
+                console.log(res)
+                if(res.status === 302){
+                    console.log("found");
+                    dispatch(getAdmin(adminUsername,password));
+                    
+                }
+                else{
+                    dispatch(errorUser("Incorrect credentials"));
+                }
+            })   
+    }
+}
+
+//busOperator login
+export const getbusops = (payload) => {
+    return {type: "GET_BUSOP", payload}
+}
+
+export const errorbusops = (payload) => {
+    return {type: "ERROR_BUSOP", payload}
+}
+
+export const checkbusops = (busOperatorUsername, password) => {
+    const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    };
+    return dispatch => {
+        fetch('http://localhost:8080/api/v1/busopertor/signin/' + busOperatorUsername +':'+ password, requestOptions)
+            .then(res => {
+                console.log(res)
+                if(res.status === 302){
+                    console.log("found");
+                    dispatch(getbusops(busOperatorUsername,password));
+                }
+                else{
+                    dispatch(errorbusops("Incorrect credentials"));
+                }
+            })   
+    }
+}
+
+
 //bookings
 
 export const saveBooking = (payload) => {
@@ -132,34 +223,7 @@ export const viewBookingByUser = (username) => {
 //user
 
 
-export const getUser = (payload) => {
-    return {type: "GET_USER", payload}
-}
 
-export const errorUser = (payload) => {
-    return {type: "ERROR_USER", payload}
-}
-
-export const checkUsername = (username, password) => {
-    const requestOptions = {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' }
-    };
-    return dispatch => {
-        fetch('http://localhost:8080/api/v1/users/findbyusername/' + username, requestOptions)
-            .then(res => {
-                console.log(res)
-                if(res.status === 302){
-                    console.log("found");
-                    dispatch(getUser(username));
-                    
-                }
-                else{
-                    dispatch(errorUser("Incorrect credentials"));
-                }
-            })   
-    }
-}
 
 export const saveUser = (payload) => {
     return {type: "ADD_USER", payload: {message: "Successfully added User!"}}

@@ -9,7 +9,7 @@ export default function Login() {
   const progress = useSelector(state=>state.progress);
   const login = useSelector(state=>state.login);
   const busOps = useSelector(state=>state.busOps);
-  const username = useRef();
+  const busOperatorUsername = useRef();
   const password = useRef();
   const errorMessage = useSelector(state=>state.errorMessage);
   const [error, setError] = useState('');
@@ -20,7 +20,7 @@ export default function Login() {
     try {
       dispatch({type: "PROGRESS", payload: true})
       // dispatch({type: "LOGIN", payload: true})
-      dispatch(actions.checkBusop(username.current.value));
+      dispatch(actions.checkBusop(busOperatorUsername.current.value,password.current.value));
       // history.push("/home");
     } catch (errorm){
       setError(errorm);
@@ -29,7 +29,7 @@ export default function Login() {
   console.log(progress);
   console.log(busOps);
   if(busOps != undefined){
-    history.push("/home");
+    history.push("/busoperator/addbus");
   }
   return (
     <div>
@@ -40,7 +40,7 @@ export default function Login() {
           <Form onSubmit={handleSubmit}>
             <Form.Group id='username'>
               <Form.Label>
-                <h5>Username</h5>
+                <h5>Bus Operator Username</h5>
               </Form.Label>
               <Form.Control type='text' ref={username} required />
             </Form.Group>

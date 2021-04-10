@@ -14,7 +14,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import DirectionsBusTwoToneIcon from '@material-ui/icons/DirectionsBusTwoTone';
 import Container from '@material-ui/core/Container';
 
 import Snackbar from '@material-ui/core/Snackbar';
@@ -114,10 +114,12 @@ class AddBus extends Component{
                  <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
+      <div style={{display:"flex",justifyContent:"center"}}>
+        <Avatar className={classes.avatar} style={{backgroundImage:" linear-gradient(blue, red)"}}>
+          <DirectionsBusTwoToneIcon/>
         </Avatar>
-        <Typography component="h1" variant="h5">
+        </div>
+        <Typography component="h1" variant="h5" style={{textAlign:"center",textShadow:"2px 2px #E3EEFF"}}>
           Adding a new Bus
         </Typography>
         <br/>
@@ -131,7 +133,7 @@ class AddBus extends Component{
                 fullWidth
                 
                 label="Enter BusNumber"
-                
+                style={{backgroundImage:" linear-gradient(#ECF4FF, white)"}}
                 inputRef={this.busNumber}
               />
             </Grid>
@@ -142,6 +144,7 @@ class AddBus extends Component{
                 fullWidth
                 label="Enter total seats"
                 inputRef={this.totalSeats}
+                style={{backgroundImage:" linear-gradient(#ECF4FF, white)"}}
               />
             </Grid>
             <Grid item xs={12}>
@@ -151,6 +154,7 @@ class AddBus extends Component{
                 fullWidth
                 label="Enter fare"
                 inputRef={this.fare}
+                style={{backgroundImage:" linear-gradient(#ECF4FF, white)"}}
               />
             </Grid>
           </Grid>

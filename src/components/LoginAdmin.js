@@ -63,8 +63,8 @@ export default function Login() {
       const dispatch = useDispatch();
       const progress = useSelector(state=>state.progress);
       //const login = useSelector(state=>state.login);
-      const user = useSelector(state=>state.user);
-      const username = useRef();
+      const admin = useSelector(state=>state.admin);
+      const adminUsername = useRef();
       const password = useRef();
       //const errorMessage = useSelector(state=>state.errorMessage);
       const [error, setError] = useState('');
@@ -75,7 +75,7 @@ export default function Login() {
         try {
           dispatch({type: "PROGRESS", payload: true})
           // dispatch({type: "LOGIN", payload: true})
-          dispatch(actions.checkUsername(username.current.value,password.current.value));
+          dispatch(actions.checkAdminUsername(adminUsername.current.value,password.current.value));
           // history.push("/home");
         } catch (errorm){
           setError(errorm);
@@ -83,9 +83,9 @@ export default function Login() {
       }
 
       console.log(progress);
-      console.log(user);
-      if(user !== undefined){
-        history.push("/booking/viewbyusername/"+user);
+      console.log(admin);
+      if(admin !== undefined){
+        history.push("/adminscreen");
       }
 
       const classes = useStyles;
@@ -102,7 +102,7 @@ export default function Login() {
         </Avatar> 
         </div>
         <Typography component="h1" variant="h5" style={{textAlign:"center",textShadow:"2px 2px #E3EEFF"}}>
-            Welcome Sign in
+            Welcome Admin
         </Typography>
         <br/>
         <form className={classes.form} noValidate>
@@ -114,7 +114,7 @@ export default function Login() {
                 required
                 fullWidth
                 label="Enter Username"
-                inputRef={username}
+                inputRef={adminUsername}
                 style={{backgroundImage:" linear-gradient(#ECF4FF, white)"}}
               />
             </Grid>
@@ -141,14 +141,8 @@ export default function Login() {
           >   
             Sign In
           </Button>
-          <br/><br/>
-          <Grid container justify="flex-end">
-            <Grid item>
-              <Link  to={"/user/add"} >
-                <h6>Don't have an account? Sign up</h6>
-              </Link>
-            </Grid>
-          </Grid>
+          
+          
 
           {/* <TextField  fullWidth disabled id="outlined-required" label={this.props.message} variant="standard"></TextField>         */}
         

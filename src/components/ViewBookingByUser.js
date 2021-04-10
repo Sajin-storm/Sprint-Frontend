@@ -304,8 +304,10 @@ class ViewBookingByUser extends Component {
                 indicatorColor="primary"
                 textColor="primary"
                 variant="scrollable"
+                scrollButtons="auto"
+                aria-label="scrollable auto tabs example"
                 >
-                <Tab label="View your Booking" onClick={this.viewBookingByUser.bind(this)} />
+                <Tab label="My Bookings" onClick={this.viewBookingByUser.bind(this)} />
                
                 <Tab label="Add Booking" to="/add"  component={Link}/>
                 <Tab label="Add feedback" to="/feedback/add" component={Link} />
