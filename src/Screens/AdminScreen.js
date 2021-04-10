@@ -76,6 +76,7 @@ export default function AdminScreen() {
           <Tab label="View Bus" to="/admin/viewbus" component={Link}/>
           <Tab label="View Booking" to="/view" component={Link}/>
           <Tab label="View Feedback" to="/feedback/getall" component={Link}/>
+          <Tab label="Home" to={"/"} component={Link}/>
         </Tabs>
       </Paper>
     </div>

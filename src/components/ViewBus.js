@@ -63,7 +63,6 @@ class ViewBus extends Component{
             
             return (
 
-
             <StyledTableRow key={i}>
                 <StyledTableCell component="th" scope="row" align="center">
                 {i+1}

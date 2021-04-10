@@ -73,14 +73,9 @@ class ViewBooking extends Component {
     
     render() {
 
-
-        
         const classes = useStyles;
         //const classes1 = useStyles1;
         
-        
-        
-
         var bookingList = this.props.bookings.map((booking, i)=>{
 
           
@@ -90,12 +85,15 @@ class ViewBooking extends Component {
 
                 <StyledTableRow key={i}>
                     <StyledTableCell align="center">{booking.id}</StyledTableCell>
-                    <StyledTableCell align="center"><Link to={"/detailview/" + booking.bookingId}>{booking.bookingId}</Link></StyledTableCell>
+                    <StyledTableCell align="center">{booking.bookingId}</StyledTableCell>
                     <StyledTableCell align="center">{booking.username}</StyledTableCell>
                     <StyledTableCell align="center">{booking.busNumber}</StyledTableCell>
                     <StyledTableCell align="center">{booking.source}</StyledTableCell>
                     <StyledTableCell align="center">{booking.destination}</StyledTableCell>
                     <StyledTableCell align="center">{booking.date}</StyledTableCell>
+                    <StyledTableCell align="center"><Link to={"/detailview/" + booking.bookingId}>
+                      <Button variant="contained"color="primary">View</Button></Link>
+                    </StyledTableCell>
                     {/* <StyledTableCell align="center"><Button variant="contained" color="secondary" 
                         startIcon={<DeleteIcon />} onClick={this.deleteBooking.bind(this, booking.bookingId)}>Delete</Button>
                     </StyledTableCell>
@@ -123,7 +121,8 @@ class ViewBooking extends Component {
                         <StyledTableCell align="center">BusNumber</StyledTableCell>
                         <StyledTableCell align="center">Source</StyledTableCell>
                         <StyledTableCell align="center">Destination</StyledTableCell>
-                        <StyledTableCell align="center">Date yyyy/mm/dd</StyledTableCell>
+                        <StyledTableCell align="center">Date YYYY/MM/DD</StyledTableCell>
+                        <StyledTableCell align="center">View Details</StyledTableCell>
                         
                     </StyledTableRow>
                 </TableHead>

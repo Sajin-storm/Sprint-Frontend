@@ -232,6 +232,11 @@ class ViewBookingByUser extends Component {
         this.state = {bookings: []}
     }
 
+    componentDidMount() {
+      console.log('Initialization...')
+      this.props.onViewBookingByUser(this.props.match.params.username)
+  }
+
     viewBookingByUser(event){
         console.log('username...',this.props.match.params.username)
         //event.preventDefault();
@@ -312,6 +317,7 @@ class ViewBookingByUser extends Component {
                 <Tab label="Add Booking" to="/add"  component={Link}/>
                 <Tab label="Add feedback" to="/feedback/add" component={Link} />
                 <Tab label="Update Password" to={"/user/update/"+this.props.match.params.username} component={Link}/>
+                <Tab label="Home" to={"/"} component={Link}/>
               </Tabs>
             </Paper>
 
@@ -356,7 +362,7 @@ class ViewBookingByUser extends Component {
                         <StyledTableCell align="center">BusNumber</StyledTableCell>
                         <StyledTableCell align="center">Source</StyledTableCell>
                         <StyledTableCell align="center">Destination</StyledTableCell>
-                        <StyledTableCell align="center">Date yyyy/mm/dd</StyledTableCell>
+                        <StyledTableCell align="center">Date YYYY/MM/DD</StyledTableCell>
                         <StyledTableCell align="center">Delete</StyledTableCell>
                         <StyledTableCell align="center">Update</StyledTableCell>
                     </StyledTableRow>

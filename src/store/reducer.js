@@ -8,6 +8,7 @@ const initialState = {
     busOperators:[],
     feedbacks:[],
     bus:[],
+    busOp:[],
 
     //login stuffs
     errorMessage:'',
@@ -16,6 +17,7 @@ const initialState = {
     login: false,
     admin: undefined,
     busOps:undefined,
+    revenue:0,
 }
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -97,6 +99,10 @@ const reducer = (state = initialState, { type, payload }) => {
         return {...state, admin:payload}
     case "ERROR_ADMIN":
         return {...state, errorMessage: payload};
+    
+    //busOp stuffs
+    case "ADD_BUSOP":
+        return {...state, busOp: state.busOp, message: payload.message} 
     
     default:
         return state

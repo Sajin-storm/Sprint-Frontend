@@ -129,27 +129,7 @@ class AddFeedback extends Component{
         </Grid>
         </Container>
             </div>
-            // <div style={{
-            //     display:'flex',
-            //     justifyContent:'center',
-            // }}>
-
-            // <form className={classes.root} noValidate autoComplete="off" >
-
-            // <div style={{textAlign:"center"}}><h5>Add Feedback</h5></div>
-            // <br/>
-            // <TextField  inputRef={this.username} id="outlined-required" label="Enter username" variant="filled" ></TextField>
-            // <br/><br/>
-            // <TextField  inputRef={this.rating} id="outlined-required" label="Enter rating" variant="filled" ></TextField>
-            // <br/><br/>
-            // <TextField  inputRef={this.comment} id="outlined-required" label="Enter comment" variant="filled" ></TextField>
-            // <br/><br/>
-            // <TextField  inputRef={this.routeName} id="outlined-required" label="Enter routeName" variant="filled" ></TextField>
-            // <br/><br/>
-            // <Button fullWidth variant="contained" color="primary" onClick={this.addFeedback.bind(this)}>Add Feedback</Button> 
-            // </form>
-                 
-            // </div>
+            
         )
     }
 }
