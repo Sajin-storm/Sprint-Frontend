@@ -128,6 +128,10 @@ export default function Login() {
         </Typography>
         
         <br/>
+        {errorMessage && 
+           <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+             <Alert severity="error">{errorMessage}</Alert>
+            </Snackbar>}
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
             
@@ -174,10 +178,7 @@ export default function Login() {
           </Grid>
 
           <TextField  fullWidth disabled id="outlined-required" label={errorMessage} variant="standard"></TextField> 
-          {errorMessage && 
-           <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-             <Alert severity="error">{errorMessage}</Alert>
-            </Snackbar>}
+          
         </form>
       </div>
       <Box mt={5}>

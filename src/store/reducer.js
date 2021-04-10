@@ -102,7 +102,10 @@ const reducer = (state = initialState, { type, payload }) => {
     
     //busOp stuffs
     case "ADD_BUSOP":
-        return {...state, busOp: state.busOp, message: payload.message} 
+        return {...state, busOp: state.busOp, message: payload.message}
+    case "GET_REV":
+        console.log(payload)
+          return {...state, revenue: payload} 
     
     default:
         return state

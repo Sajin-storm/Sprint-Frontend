@@ -17,6 +17,12 @@ import ViewBus from "./components/ViewBus";
 import AddBus from "./components/AddBus";
 import LoginBusOp from "./components/LoginBusOp";
 import Revenue from'./components/Revenue'
+
+import DatedRouteRev from './components/DatedRouteRev';
+import MonthlyRev from './components/MonthlyRev';
+import RouteRev from './components/RouteRev';
+import YearlyRev from './components/YearlyRev';
+
 import AddFeedback from "./components/AddFeedback";
 import ViewFeedback from "./components/ViewFeedback";
 
@@ -338,6 +344,18 @@ function App(props) {
             <Route exact path="/revenue">
               <Revenue />
             </Route>
+            <Route path="/routerev">
+            <RouteRev />
+          </Route>
+          <Route path="/datedrouterev">
+            <DatedRouteRev />
+          </Route>
+          <Route path="/monthlyrouterev">
+            <MonthlyRev />
+          </Route>
+          <Route path="/yearlyrevenue">
+            <YearlyRev />
+          </Route>
             <Route exact path="/">
               <Screen1 />
             </Route>
