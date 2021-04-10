@@ -86,7 +86,6 @@ class ViewUser extends Component{
                 </StyledTableCell>
                 <StyledTableCell align = "center"><Link to={"/booking/viewbyusername/" + user.username}><Button variant="contained" color="primary" >
                             View Booking</Button></Link></StyledTableCell> */}
-                
             </StyledTableRow>
             )
           })

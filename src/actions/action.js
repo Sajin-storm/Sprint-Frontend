@@ -68,13 +68,13 @@ export const errorbusops = (payload) => {
     return {type: "ERROR_BUSOP", payload}
 }
 
-export const checkbusops = (busOperatorUsername, password) => {
+export const checkBusops = (busOperatorUsername, password) => {
     const requestOptions = {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
     };
     return dispatch => {
-        fetch('http://localhost:8080/api/v1/busopertor/signin/' + busOperatorUsername +':'+ password, requestOptions)
+        fetch('http://localhost:8080/api/v1/busoperator/signin/' + busOperatorUsername +':'+ password, requestOptions)
             .then(res => {
                 console.log(res)
                 if(res.status === 302){

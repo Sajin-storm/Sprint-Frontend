@@ -157,7 +157,7 @@ class AddUser extends Component{
           <br/><br/>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link  to={"/"} >
+              <Link  to={"/user/login"} >
                 <h6>Already have an account? Sign in</h6>
               </Link>
             </Grid>

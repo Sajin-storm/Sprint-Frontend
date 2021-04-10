@@ -102,7 +102,7 @@ export default function Login() {
         </Avatar> 
         </div>
         <Typography component="h1" variant="h5" style={{textAlign:"center",textShadow:"2px 2px #E3EEFF"}}>
-            Welcome Sign in
+            Welcome User (Sign in)
         </Typography>
         <br/>
         <form className={classes.form} noValidate>

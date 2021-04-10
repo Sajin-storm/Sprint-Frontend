@@ -21,7 +21,7 @@ import LoginUser from './components/LoginUser'
 import GetAllBusOperator from './components/GetAllBusOperator'
 import ViewBus from'./components/ViewBus'
 import AddBus from './components/AddBus'
-
+import LoginBusOp from './components/LoginBusOp'
 
 import AddFeedback from './components/AddFeedback'
 import ViewFeedback from './components/ViewFeedback'
@@ -268,7 +268,7 @@ function App(props) {
         
         <br/>
       
-      <Accordion square expanded={expanded === 'panel2'} onChange={handleChange('panel2')} style={{background:"linear-gradient(#E3EEFF, white)"}}>
+      {/* <Accordion square expanded={expanded === 'panel2'} onChange={handleChange('panel2')} style={{background:"linear-gradient(#E3EEFF, white)"}}>
         <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
           <h5>User</h5>
         </AccordionSummary>
@@ -282,7 +282,7 @@ function App(props) {
           </li><li>
           <Link className="nav-link " to="/feedback/add" onClick={handleDrawerClose}><h6>Add Feedback</h6></Link>
           </li><li>
-          <Link className="nav-link " to="/" onClick={handleDrawerClose}><h6>Login</h6></Link>
+          <Link className="nav-link " to="/user/login" onClick={handleDrawerClose}><h6>Login</h6></Link>
           </li>
           <li>
           <Link className="nav-link " to="/adminscreen" onClick={handleDrawerClose}><h6>admin Screen</h6></Link>
@@ -320,7 +320,8 @@ function App(props) {
           </ul>
 
         </AccordionDetails>
-      </Accordion>
+      </Accordion> */}
+
       </Drawer>
       
       <main
@@ -336,7 +337,7 @@ function App(props) {
       <div>
 
         <Switch>
-        <Route exact path="/">
+        <Route exact path="/user/login">
             <LoginUser />
           </Route>
         
@@ -380,7 +381,10 @@ function App(props) {
           <Route exact path="/admin/login">
             <LoginAdmin />
           </Route>
-          <Route exact path="/screen1">
+          <Route exact path="/busoperator/login">
+            <LoginBusOp />
+          </Route>
+          <Route exact path="/">
             <Screen1 />
           </Route>
           
