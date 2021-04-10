@@ -85,7 +85,7 @@ export default function Login() {
       console.log(progress);
       console.log(busOps);
       if(busOps !== undefined){
-        history.push("/adminscreen");
+        history.push("/busoperatorscreen");
       }
 
       const classes = useStyles;

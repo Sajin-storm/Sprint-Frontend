@@ -55,6 +55,7 @@ import Tab from "@material-ui/core/Tab";
 import { useSelector } from "react-redux";
 
 import AdminScreen from "./Screens/AdminScreen";
+import BusOperatorScreen from "./Screens/BusOperatorScreen"
 //history import parts
 import { createBrowserHistory } from "history";
 import { Grid, Typography } from "@material-ui/core";
@@ -217,7 +218,9 @@ function App(props) {
             [classes1.appBarShift]: open,
           })}
         >
+          
           <Toolbar>
+          
             <IconButton
               color="inherit"
               aria-label="open drawer"
@@ -232,6 +235,7 @@ function App(props) {
                 <b>Blue-Bus</b>
               </i>
             </h2>
+            <Typography style={{textAlign:"center"}} >Home</Typography>
           </Toolbar>
         </AppBar>
 
@@ -293,7 +297,6 @@ function App(props) {
             <Route exact path="/user/login">
               <LoginUser />
             </Route>
-
             <Route exact path="/add">
               <AddBooking />
             </Route>
@@ -334,6 +337,9 @@ function App(props) {
             </Route>
             <Route exact path="/adminscreen">
               <AdminScreen />
+            </Route>
+            <Route exact path="/busoperatorscreen">
+              <BusOperatorScreen />
             </Route>
             <Route exact path="/admin/login">
               <LoginAdmin />
