@@ -1,12 +1,14 @@
 import {Link} from "react-router-dom"
 import Paper from "@material-ui/core/Paper";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
 import { useSelector } from "react-redux";
 
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Button } from '@material-ui/core';
-import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
+import MenuBookIcon from '@material-ui/icons/MenuBook';
+import BookIcon from '@material-ui/icons/Book';
+import FeedbackIcon from '@material-ui/icons/Feedback';
+import LockOpenIcon from '@material-ui/icons/LockOpen';
+import HomeIcon from '@material-ui/icons/Home';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -22,8 +24,8 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 export default function UserScreen() {
-    const username = useSelector(state=>state.username);
-
+    //const username = useRef();
+    const user = useSelector(state=>state.user);
     const classes = useStyles();
     
 
@@ -38,7 +40,7 @@ export default function UserScreen() {
         }}>
 
       <div style={{display:"flex",justifyContent:"center",backgroundColor:"lightBlue",}}>
-      <MonetizationOnIcon fontSize="large" />
+      <MenuBookIcon fontSize="large" />
       </div>
 
       <br/>
@@ -50,7 +52,7 @@ export default function UserScreen() {
       </Typography>
       <br/><br/>
       <div style={{textAlign:"center"}}>
-      <Link to={'/booking/viewbyusername/'+username}><Button variant="contained" color="primary" >View</Button></Link>
+      <Link to={'/booking/viewbyusername/'+user}><Button variant="contained" color="primary" >View</Button></Link>
       </div>
 
       </Paper>
@@ -62,7 +64,7 @@ export default function UserScreen() {
         }}>
 
       <div style={{display:"flex",justifyContent:"center",backgroundColor:"lightBlue",}}>
-      <MonetizationOnIcon fontSize="large" />
+      <BookIcon fontSize="large" />
       </div>
 
         <br/>
@@ -86,7 +88,7 @@ export default function UserScreen() {
         }}>
 
       <div style={{display:"flex",justifyContent:"center",backgroundColor:"lightBlue",}}>
-      <MonetizationOnIcon fontSize="large" />
+      <FeedbackIcon fontSize="large" />
       </div>
       
       <br/>
@@ -99,11 +101,11 @@ export default function UserScreen() {
       
       <div style={{textAlign:"center"}}>
     <br/>
-      <Link to="/feedback/add"><Button variant="contained" color="primary" >Add</Button></Link>
+      <Link to={"/feedback/add/"+user}><Button variant="contained" color="primary" >Add</Button></Link>
         </div>
 
       </Paper>
-      <Paper elevation={3} 
+      <Paper elevation={3}
       style={{
         height:"200px",
         width:"200px",
@@ -111,7 +113,7 @@ export default function UserScreen() {
         }}>
 
       <div style={{display:"flex",justifyContent:"center",backgroundColor:"lightBlue",}}>
-      <MonetizationOnIcon fontSize="large" />
+      <LockOpenIcon fontSize="large" />
       </div>
       
       <br/>
@@ -123,7 +125,7 @@ export default function UserScreen() {
       </Typography>
       <br/><br/>
       <div style={{textAlign:"center"}}>
-      <Link to={"/user/update/" + username}><Button variant="contained" color="primary" >Update</Button></Link>
+      <Link to={"/user/update/" + user}><Button variant="contained" color="primary" >Update</Button></Link>
       </div>
       </Paper>
 
@@ -135,7 +137,7 @@ export default function UserScreen() {
         }}>
 
       <div style={{display:"flex",justifyContent:"center",backgroundColor:"lightBlue",}}>
-      <MonetizationOnIcon fontSize="large" />
+      <HomeIcon fontSize="large" />
       </div>
       
       <br/>

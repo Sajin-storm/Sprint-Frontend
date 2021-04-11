@@ -17,7 +17,14 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
-import LockTwoToneIcon from '@material-ui/icons/LockTwoTone';
+import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
+
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
+
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 
 function Copyright() {
@@ -98,7 +105,7 @@ export default function Login() {
       <div className={classes.paper}>
       <div style={{display:"flex",justifyContent:"center"}}>
         <Avatar className={classes.avatar} style={{backgroundImage:" linear-gradient(blue, red)"}}>
-          <LockTwoToneIcon />
+          <SupervisedUserCircleIcon fontSize="large"/>
         </Avatar> 
         </div>
         <Typography component="h1" variant="h5" style={{textAlign:"center",textShadow:"2px 2px #E3EEFF"}}>

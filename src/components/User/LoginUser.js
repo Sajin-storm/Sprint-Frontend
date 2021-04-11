@@ -76,14 +76,16 @@ export default function Login() {
       const username = useRef();
       const password = useRef();
       const errorMessage = useSelector(state=>state.errorMessage);
-      const [error, setError] = useState('');
+      
       const history = useHistory();
-      const [open, setOpen] = React.useState(false);
+      const [open, setOpen] = React.useState(true);
+      
 
       const handleClick = () => {
         setOpen(true);
       };
-    
+      
+      
       const handleClose = (event, reason) => {
         if (reason === 'clickaway') {
           return;
@@ -99,7 +101,7 @@ export default function Login() {
           dispatch(actions.checkUsername(username.current.value,password.current.value));
           // history.push("/home");
         } catch (errorm){
-          setError(errorm);
+         
         }
       }
 
@@ -128,7 +130,7 @@ export default function Login() {
         
         <br/>
         {errorMessage && 
-           <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+           <Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
              <Alert severity="error">{errorMessage}</Alert>
             </Snackbar>}
         <form className={classes.form} noValidate>
@@ -137,7 +139,7 @@ export default function Login() {
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
-                required
+                required={true}
                 fullWidth
                 label="Enter Username"
                 inputRef={username}
@@ -147,7 +149,7 @@ export default function Login() {
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
-                required
+                required={true}
                 fullWidth
                 name="password"
                 label="Password"
@@ -176,7 +178,6 @@ export default function Login() {
             </Grid>
           </Grid>
 
-          <TextField  fullWidth disabled id="outlined-required" label={errorMessage} variant="standard"></TextField> 
           
         </form>
       </div>

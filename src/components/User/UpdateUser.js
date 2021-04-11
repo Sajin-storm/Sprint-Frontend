@@ -36,7 +36,7 @@ class UpdateUser extends Component{
 
         event.preventDefault();
 
-        this.props.onUpdateUser(this.props.match.params.username , this.password.current.value)
+        this.props.onUpdateUser(this.props.match.params.username, this.password.current.value)
     }
 
 
@@ -97,29 +97,7 @@ class UpdateUser extends Component{
                 </form>
                 </Container>
             </div>
-            // <div>
-
-            //     <br/>
-            //      <form className={classes.root} noValidate autoComplete="off" >
-            //      &emsp;
-            //      <TextField  defaultValue={this.props.match.params.username} id="standard-read-only-input" label="Username" variant="filled" InputProps={{readOnly: true,}}></TextField>
-            //      </form>
-            //      <br/>
-            //      <form className={classes.root} noValidate autoComplete="off">
-            //      &emsp;
-            //      <TextField  inputRef={this.password} id="standard-password-input" label="Password" type="password" helperText="New password to be updated" autoComplete="current-password" variant="filled"></TextField>
-            //      </form>
-            //      <br/>
-            //      &emsp;
-            //      <Button variant="contained" color="primary" className={classes.button} onClick={this.updateUser.bind(this)}>Update Passowrd</Button> 
-            //      <br/>
-            //      <form className={classes.root} noValidate autoComplete="off" >
-            //      &emsp;
-            //      <TextField fullWidth  disabled id="outlined-required" label={this.props.message} variant="filled"></TextField>
-            //      </form>
-
             
-            // </div>
         )
     }
 }

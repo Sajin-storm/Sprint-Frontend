@@ -6,7 +6,13 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Box from '@material-ui/core/Box';
 import { Typography, Button } from '@material-ui/core';
-import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
+import DirectionsBusIcon from '@material-ui/icons/DirectionsBus';
+import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
+import GroupAddIcon from '@material-ui/icons/GroupAdd';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import FeedbackIcon from '@material-ui/icons/Feedback';
+import MenuBookIcon from '@material-ui/icons/MenuBook';
+import HomeIcon from '@material-ui/icons/Home';
 
 import { Link } from "react-router-dom";
 
@@ -74,7 +80,7 @@ export default function AdminScreen() {
         }}>
 
       <div style={{display:"flex",justifyContent:"center",backgroundColor:"lightBlue",}}>
-      <MonetizationOnIcon fontSize="large" />
+      <DirectionsBusIcon fontSize="large" />
       </div>
 
       <br/>
@@ -86,7 +92,7 @@ export default function AdminScreen() {
       </Typography>
       <br/><br/>
       <div style={{textAlign:"center"}}>
-      <Link to={'/busoperator/addbus'}><Button variant="contained" color="primary" >View</Button></Link>
+      <Link to={'/busoperator/addbus'}><Button variant="contained" color="primary" >Add</Button></Link>
       </div>
 
       </Paper>
@@ -99,7 +105,7 @@ export default function AdminScreen() {
         }}>
 
       <div style={{display:"flex",justifyContent:"center",backgroundColor:"lightBlue",}}>
-      <MonetizationOnIcon fontSize="large" />
+      <GroupAddIcon fontSize="large" />
       </div>
       
       <br/>
@@ -111,7 +117,7 @@ export default function AdminScreen() {
       </Typography>
       <br/><br/>
       <div style={{textAlign:"center"}}>
-      <Link to="/busoperator/add"><Button variant="contained" color="primary" >Update</Button></Link>
+      <Link to="/busoperator/add"><Button variant="contained" color="primary" >Add</Button></Link>
       </div>
       </Paper>
 
@@ -123,7 +129,7 @@ export default function AdminScreen() {
         }}>
 
       <div style={{display:"flex",justifyContent:"center",backgroundColor:"lightBlue",}}>
-      <MonetizationOnIcon fontSize="large" />
+      <AccountCircleIcon fontSize="large" />
       </div>
 
         <br/>
@@ -135,7 +141,7 @@ export default function AdminScreen() {
       </Typography>
       <br/><br/>
       <div style={{textAlign:"center"}}>
-      <Link to="/user/view"><Button variant="contained" color="primary">Add</Button></Link>
+      <Link to="/user/view"><Button variant="contained" color="primary">View</Button></Link>
       </div>
 
       </Paper>
@@ -147,7 +153,7 @@ export default function AdminScreen() {
         }}>
 
       <div style={{display:"flex",justifyContent:"center",backgroundColor:"lightBlue",}}>
-      <MonetizationOnIcon fontSize="large" />
+      <SupervisedUserCircleIcon fontSize="large" />
       </div>
       
       <br/>
@@ -160,7 +166,7 @@ export default function AdminScreen() {
       
       <div style={{textAlign:"center"}}>
     <br/><br/>
-      <Link to="/admin/getallbusoperator"><Button variant="contained" color="primary" >Add</Button></Link>
+      <Link to="/admin/getallbusoperator"><Button variant="contained" color="primary" >View</Button></Link>
         </div>
 
       </Paper>
@@ -172,7 +178,7 @@ export default function AdminScreen() {
         }}>
 
       <div style={{display:"flex",justifyContent:"center",backgroundColor:"lightBlue",}}>
-      <MonetizationOnIcon fontSize="large" />
+      <DirectionsBusIcon fontSize="large" />
       </div>
       
       <br/>
@@ -184,7 +190,7 @@ export default function AdminScreen() {
       </Typography>
       <br/><br/>
       <div style={{textAlign:"center"}}>
-      <Link to="/admin/viewbus"><Button variant="contained" color="primary" >Update</Button></Link>
+      <Link to="/admin/viewbus"><Button variant="contained" color="primary" >View</Button></Link>
       </div>
       </Paper>
 
@@ -196,7 +202,7 @@ export default function AdminScreen() {
         }}>
 
       <div style={{display:"flex",justifyContent:"center",backgroundColor:"lightBlue",}}>
-      <MonetizationOnIcon fontSize="large" />
+      <MenuBookIcon fontSize="large" />
       </div>
       
       <br/>
@@ -208,7 +214,7 @@ export default function AdminScreen() {
       </Typography>
       <br/><br/>
       <div style={{textAlign:"center"}}>
-      <Link to="/view"><Button variant="contained" color="primary" >Update</Button></Link>
+      <Link to="/view"><Button variant="contained" color="primary" >View</Button></Link>
       </div>
       </Paper>
 
@@ -220,7 +226,7 @@ export default function AdminScreen() {
         }}>
 
       <div style={{display:"flex",justifyContent:"center",backgroundColor:"lightBlue",}}>
-      <MonetizationOnIcon fontSize="large" />
+      <FeedbackIcon fontSize="large" />
       </div>
       
       <br/>
@@ -232,7 +238,7 @@ export default function AdminScreen() {
       </Typography>
       <br/>
       <div style={{textAlign:"center"}}>
-      <Link to="/feedback/getall"><Button variant="contained" color="primary" >Update</Button></Link>
+      <Link to="/feedback/getall"><Button variant="contained" color="primary" >View</Button></Link>
       </div>
       </Paper>
 
@@ -244,7 +250,7 @@ export default function AdminScreen() {
         }}>
 
       <div style={{display:"flex",justifyContent:"center",backgroundColor:"lightBlue",}}>
-      <MonetizationOnIcon fontSize="large" />
+      <HomeIcon fontSize="large" />
       </div>
       
       <br/>

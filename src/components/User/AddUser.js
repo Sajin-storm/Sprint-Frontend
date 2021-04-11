@@ -18,7 +18,6 @@ import LockTwoToneIcon from '@material-ui/icons/LockTwoTone';
 import Container from '@material-ui/core/Container';
 
 
-
 function Copyright() {
     return (
       <Typography variant="body2" color="textSecondary" align="center">
@@ -68,7 +67,7 @@ class AddUser extends Component{
         this.username = React.createRef();
         this.password = React.createRef();
 
-        this.state = {message: ''}
+        this.state = {message: '', open:false}
     }
 
     addUser(event){
@@ -81,6 +80,7 @@ class AddUser extends Component{
             password: this.password.current.value
         })
     }
+   
 
     render() {
         
@@ -88,9 +88,9 @@ class AddUser extends Component{
 
         const classes = useStyles;
         
-        const handleClick = 
-        
-        this.addUser.bind(this)
+  
+
+
         
 
 
@@ -115,7 +115,7 @@ class AddUser extends Component{
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
-                required
+                required={true}
                 fullWidth
                 label="Enter Username"
                 inputRef={this.username}
@@ -125,7 +125,7 @@ class AddUser extends Component{
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
-                required
+                required={true}
                 fullWidth
                 name="password"
                 label="Password"
@@ -150,7 +150,7 @@ class AddUser extends Component{
             color="primary"
             //className={classes.submit}
             //onClick={this.addUser.bind(this)}
-            onClick = {handleClick}
+            onClick = {this.addUser.bind(this)}
           >
             Sign Up
           </Button>
@@ -170,7 +170,7 @@ class AddUser extends Component{
           id="outlined-required" 
           label={this.props.message} 
           variant="standard" 
-          style={{backgroundImage:" linear-gradient(white,#ECF4FF)"}}
+          
           ></TextField>        
         
         </form>

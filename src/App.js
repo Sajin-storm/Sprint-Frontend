@@ -332,9 +332,7 @@ function App(props) {
               <AddBus />
             </Route>
 
-            <Route exact path="/feedback/add">
-              <AddFeedback />
-            </Route>
+            <Route exact path="/feedback/add/:username" component={AddFeedback}/>
             <Route exact path="/feedback/getall">
               <ViewFeedback />
             </Route>
