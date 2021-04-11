@@ -90,6 +90,31 @@ export default function AdminScreen() {
       </div>
 
       </Paper>
+
+      <Paper elevation={3} 
+      style={{
+        height:"200px",
+        width:"200px",
+        backgroundImage:" linear-gradient(#ECF4FF, white)"
+        }}>
+
+      <div style={{display:"flex",justifyContent:"center",backgroundColor:"lightBlue",}}>
+      <MonetizationOnIcon fontSize="large" />
+      </div>
+      
+      <br/>
+      <Typography variant='h5' style={{display:"flex",justifyContent:"center"}}>
+        <b>New BusOperator</b>
+      </Typography>
+      <Typography variant='h7' style={{display:"flex",justifyContent:"center",textAlign:"center"}}>
+        Add a new Bus Operator
+      </Typography>
+      <br/><br/>
+      <div style={{textAlign:"center"}}>
+      <Link to="/busoperator/add"><Button variant="contained" color="primary" >Update</Button></Link>
+      </div>
+      </Paper>
+
       <Paper elevation={3} 
       style={{
         height:"200px",

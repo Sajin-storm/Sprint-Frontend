@@ -61,6 +61,7 @@ import UserScreen from "./Screens/UserScreen"
 //history import parts
 import { createBrowserHistory } from "history";
 import { Grid, Typography } from "@material-ui/core";
+import BusOpSignIn from "./components/BusOperator/BusOpSignIn";
 
 //history part
 var hist = createBrowserHistory();
@@ -349,6 +350,9 @@ function App(props) {
             </Route>
             <Route exact path="/busoperator/login">
               <LoginBusOp />
+            </Route>
+            <Route exact path="/busoperator/add">
+              <BusOpSignIn />
             </Route>
             <Route exact path="/revenue">
               <Revenue />
