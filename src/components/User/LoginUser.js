@@ -105,9 +105,8 @@ export default function Login() {
 
       console.log(progress);
       console.log(user);
-      console.log(errorMessage)
       if(user !== undefined){
-        history.push("/booking/viewbyusername/"+user);
+        history.push("/userscreen/"+user);
       }
 
       const classes = useStyles;

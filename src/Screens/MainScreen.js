@@ -5,6 +5,7 @@ import { Typography, Button } from '@material-ui/core';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import DirectionsBusIcon from '@material-ui/icons/DirectionsBus';
 import PersonIcon from '@material-ui/icons/Person';
+import LockTwoToneIcon from '@material-ui/icons/LockTwoTone';
 
 import {Link} from 'react-router-dom'
 const useStyles = makeStyles((theme) => ({
@@ -39,9 +40,13 @@ export default function Screen1() {
       <Typography variant='h5' style={{display:"flex",justifyContent:"center"}}>
         <b>USER</b>
       </Typography>
-      <br/><br/><br/>
-      <Link to='/user/login'><Button variant="contained" color="primary" fullWidth>Login</Button></Link>
-
+      <Typography variant='h7'style={{display:"flex",justifyContent:"center",}}>
+        User sign in and log in
+      </Typography>
+      <br/><br/>
+      <div style={{textAlign:"center"}}>
+      <Link to='/user/login'><Button variant="contained" color="primary">Login</Button></Link>
+      </div>
       </Paper>
       <Paper elevation={3} 
       style={{
@@ -53,14 +58,18 @@ export default function Screen1() {
       <div style={{display:"flex",justifyContent:"center",backgroundColor:"lightBlue",}}>
       <PersonIcon fontSize="large" />
       </div>
-
         <br/>
       <Typography variant='h5'style={{display:"flex",justifyContent:"center",}}>
         <b>ADMIN</b>  
       </Typography>
-      <br/><br/><br/>
-      <Link to='/admin/login'><Button variant="contained" color="primary" fullWidth>Login</Button></Link>
-      
+      <Typography variant='h7'style={{display:"flex",justifyContent:"center",}}>
+        Admin log in only 
+      </Typography>
+      <br/><br/>
+      <div style={{textAlign:"center"}}>
+      <Link to='/admin/login'><Button variant="contained" color="primary">Login</Button></Link>
+      </div>
+
       </Paper>
       <Paper elevation={3} 
       style={{
@@ -77,8 +86,13 @@ export default function Screen1() {
       <Typography variant='h5' style={{display:"flex",justifyContent:"center"}}>
         <b>BUS OPERATOR</b>
       </Typography>
-      <br/><br/><br/>
-      <Link to='/busoperator/login'><Button variant="contained" color="primary" fullWidth>Login</Button></Link>
+      <Typography variant='h7'style={{display:"flex",justifyContent:"center",}}>
+        BusOperator log in only 
+      </Typography>
+      <br/><br/>
+      <div style={{textAlign:"center"}}>
+      <Link to='/busoperator/login'><Button variant="contained" color="primary">Login</Button></Link>
+      </div>
 
       </Paper>
     </div>

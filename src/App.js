@@ -16,12 +16,12 @@ import GetAllBusOperator from "./components/Admin/GetAllBusOperator";
 import ViewBus from "./components/Admin/ViewBus";
 import AddBus from "./components/Admin/AddBus";
 import LoginBusOp from "./components/BusOperator/LoginBusOp";
-import Revenue from'./Screens/Revenue'
+import Revenue from "./Screens/Revenue";
 
-import DatedRouteRev from './components/BusOperator/DatedRouteRev';
-import MonthlyRev from './components/BusOperator/MonthlyRev';
-import RouteRev from './components/BusOperator/RouteRev';
-import YearlyRev from './components/BusOperator/YearlyRev';
+import DatedRouteRev from "./components/BusOperator/DatedRouteRev";
+import MonthlyRev from "./components/BusOperator/MonthlyRev";
+import RouteRev from "./components/BusOperator/RouteRev";
+import YearlyRev from "./components/BusOperator/YearlyRev";
 
 import AddFeedback from "./components/Feedback/AddFeedback";
 import ViewFeedback from "./components/Feedback/ViewFeedback";
@@ -55,7 +55,9 @@ import Tab from "@material-ui/core/Tab";
 import { useSelector } from "react-redux";
 
 import AdminScreen from "./Screens/AdminScreen";
-import BusOperatorScreen from "./Screens/BusOperatorScreen"
+import BusOperatorScreen from "./Screens/BusOperatorScreen";
+import UserScreen from "./Screens/UserScreen"
+
 //history import parts
 import { createBrowserHistory } from "history";
 import { Grid, Typography } from "@material-ui/core";
@@ -218,9 +220,7 @@ function App(props) {
             [classes1.appBarShift]: open,
           })}
         >
-          
           <Toolbar>
-          
             <IconButton
               color="inherit"
               aria-label="open drawer"
@@ -235,7 +235,6 @@ function App(props) {
                 <b>Blue-Bus</b>
               </i>
             </h2>
-            <Typography style={{textAlign:"center"}} >Home</Typography>
           </Toolbar>
         </AppBar>
 
@@ -262,7 +261,12 @@ function App(props) {
           <Divider />
 
           <br />
-                <Link to="/revenue">Revenue</Link>
+          <AccordionSummary>
+            <Link to="/">
+              <Typography variant="h6">HomePage</Typography>
+            </Link>
+            <Divider />
+          </AccordionSummary>
           <AccordionSummary>
             <Link to="/user/login">
               <h5>User login</h5>
@@ -279,8 +283,6 @@ function App(props) {
             </Link>
             <Divider />
           </AccordionSummary>
-
-         
         </Drawer>
 
         <main
@@ -319,7 +321,7 @@ function App(props) {
             </Route>
             <Route exact path="/user/update/:username" component={UpdateUser} />
 
-            <Route exact path="/admin/getAllBusOperator">
+            <Route exact path="/admin/getallbusoperator">
               <GetAllBusOperator />
             </Route>
             <Route exact path="/admin/viewbus">
@@ -338,6 +340,7 @@ function App(props) {
             <Route exact path="/adminscreen">
               <AdminScreen />
             </Route>
+            <Route exact path="/userscreen/:username" component={UserScreen}/>
             <Route exact path="/busoperatorscreen">
               <BusOperatorScreen />
             </Route>
@@ -351,17 +354,17 @@ function App(props) {
               <Revenue />
             </Route>
             <Route path="/routerev">
-            <RouteRev />
-          </Route>
-          <Route path="/datedrouterev">
-            <DatedRouteRev />
-          </Route>
-          <Route path="/monthlyrouterev">
-            <MonthlyRev />
-          </Route>
-          <Route path="/yearlyrevenue">
-            <YearlyRev />
-          </Route>
+              <RouteRev />
+            </Route>
+            <Route path="/datedrouterev">
+              <DatedRouteRev />
+            </Route>
+            <Route path="/monthlyrouterev">
+              <MonthlyRev />
+            </Route>
+            <Route path="/yearlyrevenue">
+              <YearlyRev />
+            </Route>
             <Route exact path="/">
               <Screen1 />
             </Route>
@@ -373,4 +376,3 @@ function App(props) {
 }
 
 export default App;
-

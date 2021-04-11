@@ -66,7 +66,7 @@ export default function Login() {
       const admin = useSelector(state=>state.admin);
       const adminUsername = useRef();
       const password = useRef();
-      //const errorMessage = useSelector(state=>state.errorMessage);
+      const errorMessage = useSelector(state=>state.errorMessage);
       const [error, setError] = useState('');
       const history = useHistory();
     
@@ -142,9 +142,8 @@ export default function Login() {
             Sign In
           </Button>
           
-          
-
-          {/* <TextField  fullWidth disabled id="outlined-required" label={this.props.message} variant="standard"></TextField>         */}
+          <br/><br/>
+          <TextField  fullWidth disabled id="outlined-required" label={errorMessage} variant="standard"></TextField> 
         
         </form>
       </div>

@@ -247,6 +247,19 @@ class AddBooking extends Component {
         
       </Grid>
 
+      <Grid item xs={12} >
+          <Paper className={classes.paper} >
+          <TextField 
+          fullWidth  
+          disabled 
+          id="outlined-required" 
+          label={this.props.message} 
+          variant="standard" 
+          InputProps={{readOnly: true,}}>
+          </TextField>
+          </Paper>
+        </Grid>
+
       </Grid>
       
       

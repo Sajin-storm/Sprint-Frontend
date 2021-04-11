@@ -65,7 +65,7 @@ class ViewFeedback extends Component{
                 <StyledTableCell align="center">{feedback.rating}</StyledTableCell>
                 <StyledTableCell align="center">{feedback.comment}</StyledTableCell>
                 <StyledTableCell align="center">{feedback.routeName}</StyledTableCell>
-                <StyledTableCell align="center">{feedback.busOperator.busOperatorUsername}</StyledTableCell>  
+                {/* <StyledTableCell align="center">{feedback.busOperator.busOperatorUsername}</StyledTableCell>   */}
             </StyledTableRow>
             )
         })
@@ -83,7 +83,7 @@ class ViewFeedback extends Component{
                   <StyledTableCell align="center">Rating</StyledTableCell>
                   <StyledTableCell align="center">Comment</StyledTableCell>
                   <StyledTableCell align="center">Route Name</StyledTableCell>
-                  <StyledTableCell align="center">Bus Operator</StyledTableCell>
+                  {/* <StyledTableCell align="center">Bus Operator</StyledTableCell> */}
                 </StyledTableRow>
               </TableHead>
               <TableBody>

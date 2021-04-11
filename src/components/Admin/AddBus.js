@@ -76,6 +76,10 @@ class AddBus extends Component{
         this.state = {message: '',open: false}
     }
 
+    componentDidMount(){
+      this.setState.message = ""
+    }
+
     addBus(event){
         
         this.setState = {message: ''}
@@ -172,7 +176,7 @@ class AddBus extends Component{
             Add Bus
           </Button>
 
-          
+          <br/><br/>
           <TextField  fullWidth disabled id="outlined-required" label={this.props.message} variant="standard"></TextField>        
           <Snackbar open={this.state.open} autoHideDuration={6000} onClose={this.handleClose}>
                 <Alert onClose={this.handleClose} severity="success">
