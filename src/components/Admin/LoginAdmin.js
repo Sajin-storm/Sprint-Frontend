@@ -17,7 +17,14 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
-import LockTwoToneIcon from '@material-ui/icons/LockTwoTone';
+import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
+
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
+
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 
 function Copyright() {
@@ -69,6 +76,14 @@ export default function Login() {
       const errorMessage = useSelector(state=>state.errorMessage);
       const [error, setError] = useState('');
       const history = useHistory();
+      const [open, setOpen] = React.useState(true);
+
+      const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+          return;
+        }
+        setOpen(true);
+      };
     
       function handleSubmit(e) {
         e.preventDefault();
@@ -98,13 +113,17 @@ export default function Login() {
       <div className={classes.paper}>
       <div style={{display:"flex",justifyContent:"center"}}>
         <Avatar className={classes.avatar} style={{backgroundImage:" linear-gradient(blue, red)"}}>
-          <LockTwoToneIcon />
+          <AccountCircleOutlinedIcon fontSize="large"/>
         </Avatar> 
         </div>
         <Typography component="h1" variant="h5" style={{textAlign:"center",textShadow:"2px 2px #E3EEFF"}}>
             Welcome Admin
         </Typography>
         <br/>
+        {errorMessage && 
+           <Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
+             <Alert severity="error">{errorMessage}</Alert>
+            </Snackbar>}
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
             
@@ -142,9 +161,7 @@ export default function Login() {
             Sign In
           </Button>
           
-          <br/><br/>
-          <TextField  fullWidth disabled id="outlined-required" label={errorMessage} variant="standard"></TextField> 
-        
+          
         </form>
       </div>
       <Box mt={5}>

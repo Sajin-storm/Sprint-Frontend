@@ -40,7 +40,7 @@ export default function Screen1() {
       <Typography variant='h5' style={{display:"flex",justifyContent:"center"}}>
         <b>USER</b>
       </Typography>
-      <Typography variant='h7'style={{display:"flex",justifyContent:"center",}}>
+      <Typography variant='subtitle2'style={{display:"flex",justifyContent:"center",}}>
         User sign in and log in
       </Typography>
       <br/><br/>
@@ -62,7 +62,7 @@ export default function Screen1() {
       <Typography variant='h5'style={{display:"flex",justifyContent:"center",}}>
         <b>ADMIN</b>  
       </Typography>
-      <Typography variant='h7'style={{display:"flex",justifyContent:"center",}}>
+      <Typography variant='subtitle2'style={{display:"flex",justifyContent:"center",}}>
         Admin log in only 
       </Typography>
       <br/><br/>
@@ -86,7 +86,7 @@ export default function Screen1() {
       <Typography variant='h5' style={{display:"flex",justifyContent:"center"}}>
         <b>BUS OPERATOR</b>
       </Typography>
-      <Typography variant='h7'style={{display:"flex",justifyContent:"center",}}>
+      <Typography variant='subtitle2'style={{display:"flex",justifyContent:"center",}}>
         BusOperator log in only 
       </Typography>
       <br/><br/>

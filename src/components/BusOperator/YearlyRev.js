@@ -8,6 +8,7 @@ import TextField from '@material-ui/core/TextField';
 import Input from '@material-ui/core/Input';
 import MuiAlert from '@material-ui/lab/Alert';
 import Snackbar from '@material-ui/core/Snackbar';
+import { Typography } from '@material-ui/core';
 
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -64,6 +65,11 @@ class YearlyRev extends Component {
                 {/* <div className="alert alert-success" role="alert">
                     {this.state.message}
                 </div> */}
+                <div style={{textAlign:"center"}}>
+                      <Typography variant="h4">
+                          <b>Yearly Revenue</b>
+                      </Typography>
+                  </div>
                 <br/>
                 <div style={{
                 display: "flex",

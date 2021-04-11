@@ -53,6 +53,7 @@ import { Typography, Button } from '@material-ui/core';
 import CollectionsBookmarkIcon from '@material-ui/icons/CollectionsBookmark';
 import DirectionsBusIcon from '@material-ui/icons/DirectionsBus';
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
+import HomeIcon from '@material-ui/icons/Home';
 
 import {Link} from 'react-router-dom'
 const useStyles = makeStyles((theme) => ({
@@ -152,7 +153,7 @@ export default function BusOperatorScreen() {
         }}>
 
       <div style={{display:"flex",justifyContent:"center",backgroundColor:"lightBlue",}}>
-      <MonetizationOnIcon fontSize="large" />
+      <HomeIcon fontSize="large" />
       </div>
       
       <br/>
@@ -167,7 +168,7 @@ export default function BusOperatorScreen() {
       <Link to={"/"}><Button variant="contained" color="primary" >Go</Button></Link>
       </div>
       </Paper>
-      
+
     </div>
   );
 }

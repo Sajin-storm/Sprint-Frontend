@@ -99,7 +99,7 @@ class BusOpSignIn extends Component {
             </Button>
                     </Form>
                     <div className='w-100 text-center mt-2'>
-                        <Link to="/">Back to Login </Link>
+                        <Link to="/">Back to homepage</Link>
                     </div>
                     {this.props.message && 
                         <Snackbar open={this.state.open} autoHideDuration={6000} onClose={this.handleClose}>

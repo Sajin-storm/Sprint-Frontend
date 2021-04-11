@@ -92,7 +92,7 @@ const reducer = (state = initialState, { type, payload }) => {
     case "GET_USER":
         return {...state,user: payload};
     case "ERROR_USER":
-        return {...state, errorMessage: payload}; 
+        return {...state, errorMessage: payload};
         
     //admin login
     case "GET_ADMIN":

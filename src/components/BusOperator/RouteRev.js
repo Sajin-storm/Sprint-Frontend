@@ -62,12 +62,18 @@ class RouteRev extends Component {
                 {/* <div className="alert alert-success" role="alert">
                     {this.state.message}
                 </div> */}
-                <br/>
+                <div style={{textAlign:"center"}}>
+                      <Typography variant="h4">
+                          <b>Routed Revenue</b>
+                      </Typography>
+                  </div>
+                  <br/>
                 <div style={{
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center"
               }}>
+                  
                 <form className={classes.root} noValidate autoComplete="off">
                     <TextField inputRef={this.routeName} id="outlined-basic" label="Enter Route Name" InputLabelProps={{shrink:true}} variant="outlined" />
                     {/* <Input type="text" ref={this.date} placeholder="Enter Date" aria-label="Username" aria-describedby="basic-addon1"/> */}

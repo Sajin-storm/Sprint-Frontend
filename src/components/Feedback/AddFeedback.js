@@ -36,7 +36,7 @@ class AddFeedback extends Component{
     addFeedback(event){
         this.setState = {message: ''}
         this.props.onAddFeedback({
-            username: this.username.current.value,
+            username: this.props.match.params.username,
             rating: this.rating.current.value,
             comment: this.comment.current.value,
             routeName: this.routeName.current.value
@@ -64,10 +64,11 @@ class AddFeedback extends Component{
           <TextField  
           fullWidth
           required={true}
-          inputRef={this.username} 
+          defaultValue={this.props.match.params.username}
           id="outlined-required" 
           label="Enter Username" 
           variant="outlined" 
+          disabled
           ></TextField>
           </Paper>
         </Grid>

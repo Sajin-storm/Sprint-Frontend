@@ -86,7 +86,7 @@ class AddBooking extends Component {
         <Avatar className={classes.avatar} style={{backgroundImage:" linear-gradient(blue, black)"}}>
         <DirectionsBusTwoToneIcon/>
         </Avatar>
-        </div>  
+        </div>
         <div style={{display:'flex', justifyContent:'center',textShadow:"2px 2px #E3EEFF"}}><h3>Add New Booking</h3></div>
         <br/>
 
@@ -99,7 +99,8 @@ class AddBooking extends Component {
           <TextField  
           fullWidth
           required={true}
-          inputRef={this.bookingId} 
+          inputRef={this.bookingId}
+          type="number" 
           id="outlined-required" 
           label="Enter Booking ID" 
           variant="outlined" 
@@ -163,7 +164,8 @@ class AddBooking extends Component {
           <TextField  
           fullWidth
           required={true}
-          inputRef={this.numberOfSeats} 
+          inputRef={this.numberOfSeats}
+          type="number"  
           id="outlined-required" 
           label="Enter number of seats" 
           variant="outlined" 
@@ -177,6 +179,7 @@ class AddBooking extends Component {
           fullWidth
           required={true}
           inputRef={this.amountPaid} 
+          type="number" 
           id="outlined-required" 
           label="Enter Amount" 
           variant="outlined" 
@@ -248,7 +251,7 @@ class AddBooking extends Component {
       </Grid>
 
       <Grid item xs={12} >
-          <Paper className={classes.paper} >
+          
           <TextField 
           fullWidth  
           disabled 
@@ -257,7 +260,7 @@ class AddBooking extends Component {
           variant="standard" 
           InputProps={{readOnly: true,}}>
           </TextField>
-          </Paper>
+          
         </Grid>
 
       </Grid>

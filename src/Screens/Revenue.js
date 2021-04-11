@@ -170,6 +170,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import { Typography, Button } from '@material-ui/core';
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
+import HomeIcon from '@material-ui/icons/Home';
+import EventNoteIcon from '@material-ui/icons/EventNote';
 
 import {Link} from 'react-router-dom'
 const useStyles = makeStyles((theme) => ({
@@ -221,7 +223,7 @@ export default function Revenue() {
         }}>
 
       <div style={{display:"flex",justifyContent:"center",backgroundColor:"lightBlue",}}>
-      <MonetizationOnIcon fontSize="large" />
+      <EventNoteIcon fontSize="large" />
       </div>
 
         <br/>
@@ -245,7 +247,7 @@ export default function Revenue() {
         }}>
 
       <div style={{display:"flex",justifyContent:"center",backgroundColor:"lightBlue",}}>
-      <MonetizationOnIcon fontSize="large" />
+      <EventNoteIcon fontSize="large" />
       </div>
       
       <br/>
@@ -269,7 +271,7 @@ export default function Revenue() {
         }}>
 
       <div style={{display:"flex",justifyContent:"center",backgroundColor:"lightBlue",}}>
-      <MonetizationOnIcon fontSize="large" />
+      <EventNoteIcon fontSize="large" />
       </div>
       
       <br/>
@@ -293,7 +295,7 @@ export default function Revenue() {
         }}>
 
       <div style={{display:"flex",justifyContent:"center",backgroundColor:"lightBlue",}}>
-      <MonetizationOnIcon fontSize="large" />
+      <HomeIcon fontSize="large" />
       </div>
       
       <br/>
@@ -308,7 +310,7 @@ export default function Revenue() {
       <Link to={"/"}><Button variant="contained" color="primary" >Go</Button></Link>
       </div>
       </Paper>
-      
+
     </div>
   );
 }
