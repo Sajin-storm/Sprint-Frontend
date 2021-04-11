@@ -1,6 +1,6 @@
 import React,{useRef, useState} from 'react';
 // import { connect } from 'react-redux';
-import * as actions from '../actions/action'
+import * as actions from '../../actions/action'
 import { useDispatch, useSelector } from 'react-redux';
 import {  useHistory } from 'react-router-dom';
 

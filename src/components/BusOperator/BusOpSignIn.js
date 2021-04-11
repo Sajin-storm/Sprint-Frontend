@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../actions/action';
+import * as actions from '../../actions/action';
 import { Form, Button, Card } from 'react-bootstrap';
 import TextField from '@material-ui/core/TextField';
 // import Card from '@material-ui/core/Card';

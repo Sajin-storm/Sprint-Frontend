@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import * as actions from '../actions/action'
+import * as actions from '../../actions/action'
 
 
 
@@ -38,62 +38,63 @@ const useStyles = makeStyles({
     },
   });
 
-class ViewFeedback extends Component{
+  
+
+class GetAllBusOperator extends Component{
 
     constructor(){
-        super()
-        this.state = {feedbacks:[]}
+        super();
+        this.state = {busOperators:[]}
     }
 
     componentDidMount(){
         console.log('Initialization...')
-        this.props.onFetchFeedbacks()
+        this.props.onFetchBusOperators()
+    }
+
+    deleteBusOperator(){
+      
     }
 
     render(){
+
         const classes = useStyles
 
-        var feedbackList = this.props.feedbacks.map((feedback,i)=>{
+        var busOperatorList = this.props.busOperators.map((busOperator,i)=>{
+            
             return(
-
-                <StyledTableRow key={i}>
-                <StyledTableCell component="th" scope="row" align="center">
-                {i+1}
-                </StyledTableCell>
-                <StyledTableCell align="center">{feedback.id}</StyledTableCell>
-                <StyledTableCell align="center">{feedback.username}</StyledTableCell>
-                <StyledTableCell align="center">{feedback.rating}</StyledTableCell>
-                <StyledTableCell align="center">{feedback.comment}</StyledTableCell>
-                <StyledTableCell align="center">{feedback.routeName}</StyledTableCell>
-                <StyledTableCell align="center">{feedback.busOperator.busOperatorUsername}</StyledTableCell>  
+                
+            <StyledTableRow key={i}>
+            <StyledTableCell component="th" scope="row" align="center">
+            {i+1}
+            </StyledTableCell>
+            <StyledTableCell align="center">{busOperator.id}</StyledTableCell>
+            <StyledTableCell align="center">{busOperator.busOperatorUsername}</StyledTableCell>
+            <StyledTableCell align="center">{busOperator.password}</StyledTableCell>
             </StyledTableRow>
+                
             )
         })
 
-        return(
+        return (
             <div>
-
-<TableContainer component={Paper}>
+            <TableContainer component={Paper}>
             <Table className={classes.table} aria-label="simple table">
               <TableHead>
                 <StyledTableRow>
                   <StyledTableCell align="center">Sl.no</StyledTableCell>
                   <StyledTableCell align="center">ID</StyledTableCell>
-                  <StyledTableCell align="center">Username</StyledTableCell>
-                  <StyledTableCell align="center">Rating</StyledTableCell>
-                  <StyledTableCell align="center">Comment</StyledTableCell>
-                  <StyledTableCell align="center">Route Name</StyledTableCell>
                   <StyledTableCell align="center">Bus Operator</StyledTableCell>
+                  <StyledTableCell align="center">Password</StyledTableCell>
                 </StyledTableRow>
               </TableHead>
               <TableBody>
-                {feedbackList}
-                
+                {busOperatorList}
               </TableBody>
             </Table>
           </TableContainer>
+          </div>
 
-            </div>
         )
     }
 }
@@ -101,15 +102,18 @@ class ViewFeedback extends Component{
 const mapStateToProps = (state) => {
 
     return {
-        feedbacks: state.feedbacks
+        busOperators: state.busOperators
         // ,message: state.message
     }
 }
 
 const mapDispatchToState = (dispatch) => {
     return {
-        onFetchFeedbacks: () => dispatch(actions.fetchFeedbacks()), 
-    }  
+        onFetchBusOperators: () => dispatch(actions.fetchBusOperators()), 
+        
+    }
 }
 
-export default connect(mapStateToProps, mapDispatchToState)(ViewFeedback);
+export default connect(mapStateToProps, mapDispatchToState)(GetAllBusOperator);
+
+

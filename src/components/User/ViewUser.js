@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import * as actions from '../actions/action'
+import * as actions from '../../actions/action'
 
-
+import {
+    Link
+} from "react-router-dom";
 
 
 import { withStyles,makeStyles } from '@material-ui/core/styles';
@@ -40,40 +42,50 @@ const useStyles = makeStyles({
     },
   });
 
-
-class ViewBus extends Component{
+class ViewUser extends Component{
 
     constructor() {
         super();
-        this.state = {bus:[]}
+        this.state = {users:[]}
     }
 
     componentDidMount(){
         console.log('Initialization...')
-        this.props.onFetchBus()
+        this.props.onFetchUsers()
     }
 
-    deleteBus(busNumber){
-        this.props.onDeleteBus(busNumber)
+    deleteUser(username){
+        this.props.onDeleteUser(username)
     }
 
     render(){
+
         const classes = useStyles
-        var busList = this.props.bus.map((bus,i)=>{
+
+        var userList = this.props.users.map((user,i)=>{
             
             return (
+
 
             <StyledTableRow key={i}>
                 <StyledTableCell component="th" scope="row" align="center">
                 {i+1}
                 </StyledTableCell>
-                <StyledTableCell align="center">{bus.id}</StyledTableCell>
-                <StyledTableCell align="center">{bus.busNumber}</StyledTableCell>
-                <StyledTableCell align="center">{bus.totalSeats}</StyledTableCell>
-                <StyledTableCell align="center">{bus.fare}</StyledTableCell>
-                <StyledTableCell align="center">
-                  <Button variant="contained" color="secondary" className={classes.button} startIcon={<DeleteIcon />} onClick={this.deleteBus.bind(this, bus.busNumber)}>Delete</Button>
+                <StyledTableCell align="center">{user.id}</StyledTableCell>
+                <StyledTableCell align="center">{user.username}</StyledTableCell>
+                <StyledTableCell align="center">{user.password}</StyledTableCell>
+                {/* <StyledTableCell align="center">
+                  <Button variant="contained" color="secondary" className={classes.button} startIcon={<DeleteIcon />} onClick={this.deleteUser.bind(this, user.username)}>Delete</Button>
                 </StyledTableCell>
+                <StyledTableCell align="center">
+                    <Link to={"/user/update/" + user.username}>
+                        <Button variant="contained" color="primary" className={classes.button} >
+                            Update
+                        </Button>
+                    </Link>
+                </StyledTableCell>
+                <StyledTableCell align = "center"><Link to={"/booking/viewbyusername/" + user.username}><Button variant="contained" color="primary" >
+                            View Booking</Button></Link></StyledTableCell> */}
             </StyledTableRow>
             )
           })
@@ -88,14 +100,15 @@ class ViewBus extends Component{
                 <StyledTableRow>
                   <StyledTableCell align="center">Sl.no</StyledTableCell>
                   <StyledTableCell align="center">ID</StyledTableCell>
-                  <StyledTableCell align="center">Bus Number</StyledTableCell>
-                  <StyledTableCell align="center">Total Seats</StyledTableCell>
-                  <StyledTableCell align="center">Fare</StyledTableCell>
-                  <StyledTableCell align="center">Delete</StyledTableCell>
+                  <StyledTableCell align="center">Username</StyledTableCell>
+                  <StyledTableCell align="center">Password</StyledTableCell>
+                  {/* <StyledTableCell align="center">Delete</StyledTableCell>
+                  <StyledTableCell align="center">Update</StyledTableCell>
+                  <StyledTableCell align="center">View Booking</StyledTableCell> */}
                 </StyledTableRow>
               </TableHead>
               <TableBody>
-                {busList}
+                {userList}
                 
               </TableBody>
             </Table>
@@ -109,16 +122,16 @@ class ViewBus extends Component{
 const mapStateToProps = (state) => {
 
     return {
-        bus: state.bus
+        users: state.users
         // ,message: state.message
     }
 }
 
 const mapDispatchToState = (dispatch) => {
     return {
-        onFetchBus: () => dispatch(actions.fetchBus()), 
-        onDeleteBus: (busNumber) => dispatch(actions.deleteBus(busNumber))
+        onFetchUsers: () => dispatch(actions.fetchUsers()), 
+        onDeleteUser: (username) => dispatch(actions.deleteUser(username)) 
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToState)(ViewBus);
+export default connect(mapStateToProps, mapDispatchToState)(ViewUser);

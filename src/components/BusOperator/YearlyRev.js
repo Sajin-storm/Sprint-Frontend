@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import * as actions from '../actions/action'
+import * as actions from '../../actions/action'
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
@@ -26,12 +26,12 @@ const useStyles = ((theme) => ({
     },
   }));
 
-class DatedRouteRev extends Component {
+class YearlyRev extends Component {
 
     constructor(){
         super();
         this.routeName = React.createRef();
-        this.date = React.createRef();
+        this.year = React.createRef();
         this.state = {message: '', revenue: 0, open: false};
     }
 
@@ -49,9 +49,9 @@ class DatedRouteRev extends Component {
 
     fetchRouteRevenue(event){
         console.log(this.routeName.current.value);
-        console.log(this.date.current.value);
+        console.log(this.year.current.value);
         event.preventDefault();
-        this.props.onFetchDatedRouteRevnue(this.routeName.current.value, this.date.current.value)
+        this.props.onFetchYearlyRouteRevnue(this.routeName.current.value, this.year.current.value)
         this.handleClick();
         // this.state.revenue = this.props.onFetchRouteRevnue(this.routeName.current.value)
     }
@@ -72,7 +72,7 @@ class DatedRouteRev extends Component {
               }}>
                 <form className={classes.root} noValidate autoComplete="off">
                     <TextField inputRef={this.routeName} id="outlined-basic" label="Enter Route Name" InputLabelProps={{shrink:true}} variant="outlined" /><br/><br/><br/>
-                    <TextField type="date" inputRef={this.date} id="outlined-basic" label="Enter Route Name" InputLabelProps={{shrink:true}} variant="outlined" />
+                    <TextField inputRef={this.year} id="outlined-basic" label="Enter Year" InputLabelProps={{shrink:true}} variant="outlined" />
                     {/* <Input type="text" ref={this.date} placeholder="Enter Date" aria-label="Username" aria-describedby="basic-addon1"/> */}
                     {/* <input type="text" ref={this.date} placeholder="Enter Date" aria-label="Username" aria-describedby="basic-addon1"/> */}
                 </form>
@@ -99,9 +99,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToState = (dispatch) => {
     return {
-        onFetchDatedRouteRevnue: (routeName, date) => dispatch(actions.fetchDatedRouteRev(routeName, date))
+        onFetchYearlyRouteRevnue: (routeName, year) => dispatch(actions.fetchYearlyRouteRev(routeName, year))
     }
 }
 
 
-export default connect(mapStateToProps, mapDispatchToState)(DatedRouteRev);
+export default connect(mapStateToProps, mapDispatchToState)(YearlyRev);

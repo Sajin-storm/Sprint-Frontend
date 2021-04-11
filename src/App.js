@@ -1,33 +1,33 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import AddBooking from "./components/AddBooking";
-import UpdateBooking from "./components/UpdateBooking";
-import ViewBooking from "./components/ViewBooking";
+import AddBooking from "./components/Booking/AddBooking";
+import UpdateBooking from "./components/Booking/UpdateBooking";
+import ViewBooking from "./components/Booking/ViewBooking";
 import DetailViewBooking from "./DetailViewBooking";
-import ViewBookingByUser from "./components/ViewBookingByUser";
+import ViewBookingByUser from "./components/Booking/ViewBookingByUser";
 
-import AddUser from "./components/AddUser";
-import ViewUser from "./components/ViewUser";
-import UpdateUser from "./components/UpdateUser";
-import LoginUser from "./components/LoginUser";
+import AddUser from "./components/User/AddUser";
+import ViewUser from "./components/User/ViewUser";
+import UpdateUser from "./components/User/UpdateUser";
+import LoginUser from "./components/User/LoginUser";
 
-import GetAllBusOperator from "./components/GetAllBusOperator";
-import ViewBus from "./components/ViewBus";
-import AddBus from "./components/AddBus";
-import LoginBusOp from "./components/LoginBusOp";
-import Revenue from'./components/Revenue'
+import GetAllBusOperator from "./components/Admin/GetAllBusOperator";
+import ViewBus from "./components/Admin/ViewBus";
+import AddBus from "./components/Admin/AddBus";
+import LoginBusOp from "./components/BusOperator/LoginBusOp";
+import Revenue from'./Screens/Revenue'
 
-import DatedRouteRev from './components/DatedRouteRev';
-import MonthlyRev from './components/MonthlyRev';
-import RouteRev from './components/RouteRev';
-import YearlyRev from './components/YearlyRev';
+import DatedRouteRev from './components/BusOperator/DatedRouteRev';
+import MonthlyRev from './components/BusOperator/MonthlyRev';
+import RouteRev from './components/BusOperator/RouteRev';
+import YearlyRev from './components/BusOperator/YearlyRev';
 
-import AddFeedback from "./components/AddFeedback";
-import ViewFeedback from "./components/ViewFeedback";
+import AddFeedback from "./components/Feedback/AddFeedback";
+import ViewFeedback from "./components/Feedback/ViewFeedback";
 
-import LoginAdmin from "./components/LoginAdmin";
-import Screen1 from "./Screens/Screen1";
+import LoginAdmin from "./components/Admin/LoginAdmin";
+import Screen1 from "./Screens/MainScreen";
 
 import { makeStyles, useTheme, withStyles } from "@material-ui/core/styles";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";

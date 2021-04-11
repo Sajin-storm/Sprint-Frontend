@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import * as actions from '../actions/action'
+import * as actions from '../../actions/action'
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
 import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
+import Input from '@material-ui/core/Input';
 import MuiAlert from '@material-ui/lab/Alert';
 import Snackbar from '@material-ui/core/Snackbar';
-import Input from '@material-ui/core/Input';
 
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
   }
+
 
 const useStyles = ((theme) => ({
     root: {
@@ -26,19 +26,14 @@ const useStyles = ((theme) => ({
     },
   }));
 
-class RouteRev extends Component {
+class MonthlyRev extends Component {
 
     constructor(){
         super();
         this.routeName = React.createRef();
+        this.month = React.createRef();
+        this.year = React.createRef();
         this.state = {message: '', revenue: 0, open: false};
-    }
-
-    fetchRouteRevenue(event){
-        console.log(this.routeName.current.value);
-        event.preventDefault();  
-        this.props.onFetchRouteRevnue(this.routeName.current.value);
-        this.handleClick();
     }
 
     handleClick = () => {
@@ -53,10 +48,19 @@ class RouteRev extends Component {
         this.setState({open: false})
     };
 
+    fetchRouteRevenue(event){
+        console.log(this.routeName.current.value);
+        console.log(this.month.current.value);
+        console.log(this.year.current.value);
+        event.preventDefault();
+        this.props.onFetchMonthlyRouteRevnue(this.routeName.current.value, this.month.current.value, this.year.current.value)
+        this.handleClick();
+        // this.state.revenue = this.props.onFetchRouteRevnue(this.routeName.current.value)
+    }
+
     render() {
 
         const classes = useStyles;
-
         return (
             <div>
                 {/* <div className="alert alert-success" role="alert">
@@ -69,7 +73,9 @@ class RouteRev extends Component {
                 alignItems: "center"
               }}>
                 <form className={classes.root} noValidate autoComplete="off">
-                    <TextField inputRef={this.routeName} id="outlined-basic" label="Enter Route Name" InputLabelProps={{shrink:true}} variant="outlined" />
+                    <TextField inputRef={this.routeName} id="outlined-basic" label="Enter Route Name" InputLabelProps={{shrink:true}} variant="outlined" /><br/><br/><br/>
+                    <TextField inputRef={this.month} id="outlined-basic" label="Enter Month" InputLabelProps={{shrink:true}} variant="outlined" /><br/><br/><br/>
+                    <TextField inputRef={this.year} id="outlined-basic" label="Enter Year" InputLabelProps={{shrink:true}} variant="outlined" />
                     {/* <Input type="text" ref={this.date} placeholder="Enter Date" aria-label="Username" aria-describedby="basic-addon1"/> */}
                     {/* <input type="text" ref={this.date} placeholder="Enter Date" aria-label="Username" aria-describedby="basic-addon1"/> */}
                 </form>
@@ -96,9 +102,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToState = (dispatch) => {
     return {
-        onFetchRouteRevnue: (payload) => dispatch(actions.fetchRouteRev(payload))
+        onFetchMonthlyRouteRevnue: (routeName, month, year) => dispatch(actions.fetchMonthlyRouteRev(routeName, month, year))
     }
 }
 
 
-export default connect(mapStateToProps, mapDispatchToState)(RouteRev);
+export default connect(mapStateToProps, mapDispatchToState)(MonthlyRev);
